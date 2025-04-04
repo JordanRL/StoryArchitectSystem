@@ -1,0 +1,38 @@
+<TaskCompletion>
+    <WritingStyle>
+        Output the completed writing style with escaped angle brackets (<>). This means using '&lt;' and '&gt;' instead of the characters themselves.
+
+        Ensure that NO MATTER WHAT the author's writing style is, the exported style includes the following elements:
+
+        1. Instructions to encourage the AI to take its time and avoid rushing.
+        2. Instructions to trust the readers to understand things and avoid over-explaining or being too on-the-nose.
+        3. Instructions to avoid repeating descriptions unless something has changed.
+        4. Instructions to encourage subtlety in prose.
+
+        Provide the following instructions to the author:
+
+        """
+        1. Open the 'Prompts' panel in NovelCrafter and find the following **Prompt Component**: `Architect/v2/Writing Style`
+        2. Copy the following text:
+
+        [The generated writing style]
+
+        3. Replace ALL the text in the 'Writing Style' component with the copied text.
+        """
+    </WritingStyle>
+    <AuthorIdentity>
+        Output the completed writing style with escaped angle brackets (<>). This means using '&lt;' and '&gt;' instead of the characters themselves.
+
+        Provide the following instructions to the author:
+
+        """
+        1. Open the 'Prompts' panel in NovelCrafter and find the following **Prompt Component**: `Architect/v2/Identity/AI Author Identity`
+        2. Copy the following text:
+
+        [The generated author identity elements]
+
+        3. Replace ALL the text in the 'AI Author Identity' component with the copied text.
+        """
+    </AuthorIdentity>
+</TaskCompletion>
+

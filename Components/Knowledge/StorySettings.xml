@@ -1,0 +1,1851 @@
+<StorySettings>
+    {#if input("Desired Approximate Length")}
+    <DesiredApproximateLength>
+        {ifs(
+        "Lengthy Novel" in input("Desired Approximate Length"), "More than 250,000 words",
+        "Average Novel" in input("Desired Approximate Length"), "Up to 250,000 words",
+        "Novella" in input("Desired Approximate Length"), "Up to 40,000 words",
+        "Short Story" in input("Desired Approximate Length"), "Up to 7,500 words"
+        )}
+    </DesiredApproximateLength>
+    {#endif}
+
+    {#if input("Narrative Structure")}
+    <NarrativeStructure>
+        <!-- The author has selected the following narrative structure(s) for their story. If multiple structures are provided, this is meant to represent a story that has elements of all selected structures. -->
+
+        {#if "Three Act Structure" in input("Narrative Structure")}
+        <Structure name="Three Act Structure">
+            <Description>
+                The Three Act Structure is a fundamental narrative framework that divides a story into setup, confrontation, and resolution. It provides a clear progression through establishment of status quo, introduction of conflict, escalation of challenges, and final resolution.
+            </Description>
+
+            <WhenToUse>
+                Best employed when you need a clear, proven structure that readers will naturally understand and follow. Particularly useful for first-time writers or stories that follow a single protagonist through a clear conflict arc. Works well when your story has distinct beginning, middle, and end phases with clear transition points between them.
+
+                Most effective when your story needs to build tension gradually and when character development can be tied to specific plot points.
+            </WhenToUse>
+
+            <Components>
+                <Act name="Setup">
+                    <Element>Exposition: Establish normal world and status quo</Element>
+                    <Element>Inciting Incident: Event that starts story movement</Element>
+                    <Element>Plot Point One: Protagonist commits to dealing with conflict</Element>
+                </Act>
+
+                <Act name="Confrontation">
+                    <Element>Rising Action: Escalating challenges and complications</Element>
+                    <Element>Midpoint: Major twist or revelation</Element>
+                    <Element>Plot Point Two: Major setback leading to final conflict</Element>
+                </Act>
+
+                <Act name="Resolution">
+                    <Element>Pre-climax: Preparation for final confrontation</Element>
+                    <Element>Climax: Final conflict resolution</Element>
+                    <Element>Denouement: Wrap-up and new status quo</Element>
+                </Act>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Hero's Journey - More detailed version with specific character transformation points</Structure>
+                <Structure>Fichtean Curve - Simplified version focusing on rising tension</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Second act can become meandering without clear progression</Pitfall>
+                <Pitfall>Setup can be too long before reaching inciting incident</Pitfall>
+                <Pitfall>Resolution may feel rushed if too much focus is placed on earlier acts</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Any - this structure is highly adaptable</Genre>
+                <Genre>Particularly strong for Action/Adventure</Genre>
+                <Genre>Mystery/Thriller</Genre>
+                <Genre>Romance</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your story have a clear external conflict that drives the plot?</Question>
+                <Question>Can you identify distinct phases of your protagonist's journey?</Question>
+                <Question>Do you want a traditional story structure that readers will find familiar?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Hero's Journey" in input("Narrative Structure")}
+        <Structure name="Hero's Journey">
+            <Description>
+                The Hero's Journey is a mythic structure that follows a protagonist through a transformative adventure, from their ordinary world through trials and transformation, and back again changed. It emphasizes both external journey and internal transformation.
+            </Description>
+
+            <WhenToUse>
+                Ideal for stories where the protagonist must leave their comfort zone to undergo significant personal transformation. Most effective when your story involves both physical and psychological journey elements. Perfect for tales that want to tap into mythic resonance and universal themes of transformation.
+
+                Particularly suitable when your character needs to grow significantly through experience and revelation, though this structure often emphasizes plot above character development.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Departure">
+                    <Element>The Ordinary World: Establish hero's normal life</Element>
+                    <Element>The Call to Adventure: Present the challenge/opportunity</Element>
+                    <Element>Refusal of the Call: Initial resistance</Element>
+                    <Element>Meeting the Mentor: Guidance figure appears</Element>
+                    <Element>Crossing the First Threshold: Leave comfort zone</Element>
+                </Phase>
+
+                <Phase name="Initiation">
+                    <Element>Tests, Allies, Enemies: Face challenges, build relationships</Element>
+                    <Element>Approach to Inmost Cave: Prepare for major challenge</Element>
+                    <Element>The Ordeal: Face significant challenge</Element>
+                    <Element>Seizing the Reward: Gain what was sought</Element>
+                </Phase>
+
+                <Phase name="Return">
+                    <Element>The Road Back: Begin journey home</Element>
+                    <Element>Resurrection: Face final test</Element>
+                    <Element>Return with Elixir: Bring transformation back home</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Three Act Structure - Simplified version of similar journey</Structure>
+                <Structure>Parallel Journey Structure - Emotional/internal adaptation</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can feel formulaic if followed too rigidly</Pitfall>
+                <Pitfall>May include unnecessary steps for simpler stories</Pitfall>
+                <Pitfall>Risk of making mentor more interesting than hero</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Fantasy</Genre>
+                <Genre>Science Fiction</Genre>
+                <Genre>Coming of Age</Genre>
+                <Genre>Adventure</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your protagonist need to leave their familiar environment to grow?</Question>
+                <Question>Will your character face multiple challenges that transform them?</Question>
+                <Question>Is there a mentor figure who guides your protagonist?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Fichtean Curve" in input("Narrative Structure")}
+        <Structure name="Fichtean Curve">
+            <Description>
+                The Fichtean Curve is a streamlined structure focusing on rising action through multiple crises, leading to a climax and brief resolution. It emphasizes constant tension and forward momentum.
+            </Description>
+
+            <WhenToUse>
+                Best used when you want to maintain consistent tension throughout the story. Particularly effective for plots that need to move quickly and keep readers engaged. Works well when your story starts close to the initial conflict and needs to maintain momentum.
+
+                Ideal for stories where external conflicts drive the narrative.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Rising Action">
+                    <Element>Multiple crises of increasing intensity</Element>
+                    <Element>Each crisis builds upon previous ones</Element>
+                    <Element>Progressive complications</Element>
+                </Phase>
+
+                <Phase name="Climax">
+                    <Element>Final culmination of all conflicts</Element>
+                    <Element>Highest point of tension</Element>
+                </Phase>
+
+                <Phase name="Falling Action">
+                    <Element>Brief resolution</Element>
+                    <Element>Quick wrap-up of loose ends</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Three Act Structure - More detailed version with clearer phases</Structure>
+                <Structure>Internal Crisis Arc - Emotional adaptation of crisis structure</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can feel exhausting without moments of relief</Pitfall>
+                <Pitfall>May not allow enough time for character development</Pitfall>
+                <Pitfall>Risk of crisis fatigue if tensions don't vary</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Thriller</Genre>
+                <Genre>Mystery</Genre>
+                <Genre>Action</Genre>
+                <Genre>Horror</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your story benefit from constant tension?</Question>
+                <Question>Can your plot support multiple crisis points?</Question>
+                <Question>Do you want to start close to the initial conflict?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Mirror Structure" in input("Narrative Structure")}
+        <Structure name="Mirror Structure">
+            <Description>
+                The Mirror Structure presents a character with similar situations repeatedly, each time revealing more about their core nature or flaw. Each iteration provides new context or stakes, forcing different responses and growth.
+            </Description>
+
+            <WhenToUse>
+                Ideal for stories focusing on character growth through pattern recognition and breaking cycles. Most effective when exploring how a character responds differently to similar situations over time. Works well when you want to show gradual character development through repeated challenges.
+
+                Particularly useful when exploring themes of personal growth and self-awareness.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Initial Situation">
+                    <Element>Establish character's typical response</Element>
+                    <Element>Reveal core flaw or belief</Element>
+                </Phase>
+
+                <Phase name="Reflections">
+                    <Element>Similar situations with increasing stakes</Element>
+                    <Element>Different contexts for same core challenge</Element>
+                    <Element>Progressive awareness of patterns</Element>
+                </Phase>
+
+                <Phase name="Final Reflection">
+                    <Element>Ultimate version of challenge</Element>
+                    <Element>Character must choose new response</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Echo Structure - Similar but focused on past events</Structure>
+                <Structure>Spiral Structure - More emphasis on deepening understanding</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Repetition can become tedious if not varied enough</Pitfall>
+                <Pitfall>Risk of predictability in situations</Pitfall>
+                <Pitfall>May feel artificial if situations too similar</Pitfall>
+                <Pitfall>May feel that the character is not growing or learning if the situations feel self-inflicted</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Psychological Fiction</Genre>
+                <Genre>Character Studies</Genre>
+                <Genre>Contemporary Fiction</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your character have a specific pattern they need to recognize and break?</Question>
+                <Question>Can your story support multiple versions of similar situations?</Question>
+                <Question>Is personal growth through recognition of patterns central to your story?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Internal/External Parallel Structure" in input("Narrative Structure")}
+        <Structure name="Internal/External Parallel Structure">
+            <Description>
+                This structure alternates between external events and internal processing, showing how outer experiences shape inner development and vice versa. It creates a dialogue between action and reflection.
+            </Description>
+
+            <WhenToUse>
+                Best used when you want to explore how external events affect internal development and vice versa. Particularly effective for stories where character growth is as important as plot progression. Works well when you need to balance action with introspection.
+
+                Ideal for stories that explore the relationship between experience and personal growth.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="External Events">
+                    <Element>Plot-driven scenes and actions</Element>
+                    <Element>Observable changes and challenges</Element>
+                </Phase>
+
+                <Phase name="Internal Processing">
+                    <Element>Reflection and realization</Element>
+                    <Element>Emotional development</Element>
+                    <Element>Perspective shifts</Element>
+                </Phase>
+
+                <Phase name="Integration">
+                    <Element>Actions influenced by growth</Element>
+                    <Element>Growth manifested in action</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Parallel Journey Structure - Similar but more focused on emotional journey</Structure>
+                <Structure>Three Act Structure - Can be adapted to include internal parallels</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can feel disjointed if transitions aren't smooth</Pitfall>
+                <Pitfall>Risk of pacing issues between action and reflection</Pitfall>
+                <Pitfall>Internal sections may become too introspective</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Psychological Thriller</Genre>
+                <Genre>Coming of Age</Genre>
+                <Genre>Character-Driven Drama</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Is your character's internal journey as important as their external one?</Question>
+                <Question>Do you want to explore how events shape personality?</Question>
+                <Question>Can your story balance action with reflection?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Relationship Network Structure" in input("Narrative Structure")}
+        <Structure name="Relationship Network Structure">
+            <Description>
+                The Relationship Network Structure centers on how multiple relationships interact and influence each other, with plot progression occurring through the development and evolution of these connections. Character growth emerges from the interplay of different relationships.
+            </Description>
+
+            <WhenToUse>
+                Ideal for stories where interpersonal dynamics drive the narrative. Most effective when exploring how relationships affect and transform each other. Perfect for stories about family, community, or social networks.
+
+                Particularly suitable when character growth comes primarily through relationship development.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Establishment">
+                    <Element>Set up key relationships</Element>
+                    <Element>Establish initial dynamics</Element>
+                    <Element>Show connection patterns</Element>
+                </Phase>
+
+                <Phase name="Development">
+                    <Element>Relationship challenges and changes</Element>
+                    <Element>Interconnected conflicts</Element>
+                    <Element>Ripple effects between relationships</Element>
+                </Phase>
+
+                <Phase name="Resolution">
+                    <Element>New relationship equilibrium</Element>
+                    <Element>Changed connection patterns</Element>
+                    <Element>Growth through relationship transformation</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Ripple Structure - Similar focus on interconnected effects</Structure>
+                <Structure>Mosaic Structure - Different perspective on interconnected stories</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can become too complex with too many relationships</Pitfall>
+                <Pitfall>Risk of losing focus without clear central relationships</Pitfall>
+                <Pitfall>May lack forward momentum without external events</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Family Saga</Genre>
+                <Genre>Social Drama</Genre>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Romance</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Are relationships the primary driver of your story?</Question>
+                <Question>Do multiple relationships affect your protagonist's development?</Question>
+                <Question>Is your story about how relationships change over time?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Identity Spiral Structure" in input("Narrative Structure")}
+        <Structure name="Identity Spiral Structure">
+            <Description>
+                The Identity Spiral Structure follows a character's deepening understanding of self through increasingly challenging situations that force them to question and redefine their identity. Each spiral brings them closer to their core truth or conflict.
+            </Description>
+
+            <WhenToUse>
+                Best used when exploring questions of identity and self-discovery. Particularly effective for stories about personal transformation and self-understanding. Works well when character growth needs to happen in layers rather than linear progression.
+
+                Ideal for stories that deal with questions of authenticity and self-discovery.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Initial Identity">
+                    <Element>Establish current self-concept</Element>
+                    <Element>Show identity limitations</Element>
+                </Phase>
+
+                <Phase name="Spiral Cycles">
+                    <Element>Challenge to identity</Element>
+                    <Element>Resistance and questioning</Element>
+                    <Element>Deeper understanding</Element>
+                    <Element>New identity level</Element>
+                </Phase>
+
+                <Phase name="Core Truth">
+                    <Element>Final identity challenge</Element>
+                    <Element>True self-realization</Element>
+                    <Element>Integration of identity</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Mirror Structure - Similar pattern of repeated challenges</Structure>
+                <Structure>Healing Journey Structure - Similar focus on internal growth</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can become repetitive without clear progression</Pitfall>
+                <Pitfall>Risk of becoming too introspective</Pitfall>
+                <Pitfall>May lose reader if identity challenges too similar</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Coming of Age</Genre>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Psychological Drama</Genre>
+                <Genre>Character Study</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Is your story about discovering or redefining identity?</Question>
+                <Question>Does your character need to peel back layers of self-understanding?</Question>
+                <Question>Can your story support repeated identity challenges?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Healing Journey Structure" in input("Narrative Structure")}
+        <Structure name="Healing Journey Structure">
+            <Description>
+                The Healing Journey Structure follows a character's recovery from trauma or emotional wound, organizing the narrative around stages of healing and growth. It focuses on the process of recovery and transformation through healing.
+            </Description>
+
+            <WhenToUse>
+                Best used for stories centered on recovery and healing. Particularly effective when dealing with trauma, loss, or significant emotional damage. Works well when character growth is tied to healing process.
+
+                Ideal for stories about overcoming past wounds and finding new strength.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Wound">
+                    <Element>Establish nature of trauma/wound</Element>
+                    <Element>Show impact on character</Element>
+                    <Element>Reveal coping mechanisms</Element>
+                </Phase>
+
+                <Phase name="Healing Process">
+                    <Element>Recognition of need for healing</Element>
+                    <Element>Steps toward recovery</Element>
+                    <Element>Setbacks and progress</Element>
+                    <Element>Support and resistance</Element>
+                </Phase>
+
+                <Phase name="Integration">
+                    <Element>Acceptance of past</Element>
+                    <Element>New way of being</Element>
+                    <Element>Transformed understanding</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Internal Crisis Arc - Similar focus on emotional journey</Structure>
+                <Structure>Parallel Journey Structure - Different approach to transformation</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can become too focused on pain/trauma</Pitfall>
+                <Pitfall>Risk of oversimplifying healing process</Pitfall>
+                <Pitfall>May lack external plot movement</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Psychological Drama</Genre>
+                <Genre>Recovery Narratives</Genre>
+                <Genre>Contemporary Fiction</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Is your story about recovery from trauma or loss?</Question>
+                <Question>Does character growth come through healing?</Question>
+                <Question>Can you show the stages of emotional recovery?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Parallel Journey Structure" in input("Narrative Structure")}
+        <Structure name="Parallel Journey Structure">
+            <Description>
+                The Parallel Journey Structure adapts the Hero's Journey to focus on emotional and interpersonal milestones rather than physical challenges. It maintains the journey framework but emphasizes internal transformation over external adventure.
+            </Description>
+
+            <WhenToUse>
+                Ideal for stories where emotional growth is the primary journey. Best used when you want to give mythic resonance to personal development. Particularly effective when psychological transformation needs a clear structure.
+
+                Works well for stories that need to balance emotional depth with familiar narrative patterns.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Emotional Departure">
+                    <Element>Emotional status quo</Element>
+                    <Element>Internal call to change</Element>
+                    <Element>Resistance to growth</Element>
+                    <Element>Emotional guide appears</Element>
+                    <Element>First step toward change</Element>
+                </Phase>
+
+                <Phase name="Psychological Trials">
+                    <Element>Emotional challenges</Element>
+                    <Element>Relationship tests</Element>
+                    <Element>Internal revelations</Element>
+                    <Element>Personal growth moments</Element>
+                </Phase>
+
+                <Phase name="Return and Integration">
+                    <Element>Facing old patterns with new understanding</Element>
+                    <Element>Final emotional challenge</Element>
+                    <Element>Integration of growth</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Hero's Journey - Traditional external version</Structure>
+                <Structure>Internal Crisis Arc - Similar focus on emotional challenges</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>May lack external tension</Pitfall>
+                <Pitfall>Risk of becoming too introspective</Pitfall>
+                <Pitfall>Can feel forced if emotional beats too closely match Hero's Journey</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Psychological Fiction</Genre>
+                <Genre>Romance</Genre>
+                <Genre>Coming of Age</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Is emotional growth the main focus of your story?</Question>
+                <Question>Do you want to give mythic resonance to personal development?</Question>
+                <Question>Can your character's internal journey follow clear stages?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Internal Crisis Arc" in input("Narrative Structure")}
+        <Structure name="Internal Crisis Arc">
+            <Description>
+                The Internal Crisis Arc adapts the Fichtean Curve to focus on emotional and psychological challenges rather than external conflicts. It creates a series of escalating internal crises that force character growth and self-realization.
+            </Description>
+
+            <WhenToUse>
+                Best used when psychological or emotional conflict drives the story. Particularly effective for character studies and stories about internal growth. Works well when external plot is minimal but emotional stakes are high.
+
+                Ideal for exploring how characters handle escalating emotional pressure.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Rising Internal Tension">
+                    <Element>Series of emotional challenges</Element>
+                    <Element>Escalating internal conflicts</Element>
+                    <Element>Progressive self-awareness</Element>
+                </Phase>
+
+                <Phase name="Internal Climax">
+                    <Element>Major emotional crisis</Element>
+                    <Element>Confrontation with self</Element>
+                    <Element>Peak of internal conflict</Element>
+                </Phase>
+
+                <Phase name="Resolution">
+                    <Element>Emotional aftermath</Element>
+                    <Element>New understanding</Element>
+                    <Element>Internal peace or continued struggle</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Fichtean Curve - External conflict version</Structure>
+                <Structure>Healing Journey Structure - Similar focus on internal growth</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>May lack external drama to engage readers</Pitfall>
+                <Pitfall>Risk of becoming too introspective</Pitfall>
+                <Pitfall>Can feel static without visible change</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Psychological Drama</Genre>
+                <Genre>Character Study</Genre>
+                <Genre>Contemporary Fiction</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Is internal conflict the main driver of your story?</Question>
+                <Question>Can your character sustain multiple emotional crises?</Question>
+                <Question>Does your story focus more on feelings than events?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Threshold Structure" in input("Narrative Structure")}
+        <Structure name="Threshold Structure">
+            <Description>
+                The Threshold Structure organizes narrative around distinct moments of irreversible change or decision. Each threshold represents a point of no return in character development, with the story progressing through these definitive moments.
+            </Description>
+
+            <WhenToUse>
+                Ideal for stories about transformation through decisive moments. Best used when character development happens in clear, distinct stages. Particularly effective for stories about life changes or major decisions.
+
+                Works well when you want to emphasize the permanence of character choices.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Initial State">
+                    <Element>Establish character before change</Element>
+                    <Element>Show what's at stake</Element>
+                </Phase>
+
+                <Phase name="Thresholds">
+                    <Element>Series of decisive moments</Element>
+                    <Element>Clear before/after states</Element>
+                    <Element>Increasing significance of choices</Element>
+                </Phase>
+
+                <Phase name="Final Transformation">
+                    <Element>Ultimate threshold</Element>
+                    <Element>Final change</Element>
+                    <Element>New state of being</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Identity Spiral Structure - Similar focus on transformation</Structure>
+                <Structure>Mirror Structure - Different approach to character change</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can feel mechanical if thresholds too evenly spaced</Pitfall>
+                <Pitfall>Risk of making changes too abrupt</Pitfall>
+                <Pitfall>May lack subtlety in character development</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Coming of Age</Genre>
+                <Genre>Life Stage Stories</Genre>
+                <Genre>Personal Growth</Genre>
+                <Genre>Transformation Narratives</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your story revolve around key moments of change?</Question>
+                <Question>Are your character's decisions irreversible?</Question>
+                <Question>Can you identify clear before/after states in your story?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Mirror Maze Structure" in input("Narrative Structure")}
+        <Structure name="Mirror Maze Structure">
+            <Description>
+                The Mirror Maze Structure has characters encountering different reflections of themselves through others, using these encounters to explore and understand their own nature. Each reflection reveals different aspects of the protagonist's character.
+            </Description>
+
+            <WhenToUse>
+                Best used when exploring self-discovery through relationships and parallels. Particularly effective for stories about understanding oneself through others. Works well when character insight comes from seeing themselves reflected in others.
+
+                Ideal for complex character studies with multiple perspectives.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Initial Self-Image">
+                    <Element>Establish protagonist's self-perception</Element>
+                    <Element>Show limitations of understanding</Element>
+                </Phase>
+
+                <Phase name="Reflections">
+                    <Element>Encounters with mirror characters</Element>
+                    <Element>Recognition of shared traits</Element>
+                    <Element>Progressive self-awareness</Element>
+                </Phase>
+
+                <Phase name="Integration">
+                    <Element>Reconciliation of different aspects</Element>
+                    <Element>New self-understanding</Element>
+                    <Element>Acceptance or rejection of reflections</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Network Structure - Similar use of multiple characters</Structure>
+                <Structure>Identity Spiral - Different approach to self-discovery</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can become confusing with too many reflections</Pitfall>
+                <Pitfall>Risk of making mirror characters too obvious</Pitfall>
+                <Pitfall>May lose focus without clear progression</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Psychological Fiction</Genre>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Character Study</Genre>
+                <Genre>Experimental Fiction</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your character learn about themselves through others?</Question>
+                <Question>Can you create meaningful parallel characters?</Question>
+                <Question>Is self-discovery through reflection central to your story?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Deconstruction Structure" in input("Narrative Structure")}
+        <Structure name="Deconstruction Structure">
+            <Description>
+                The Deconstruction Structure systematically breaks down a character's beliefs, certainties, or worldview. Each element of their foundation is challenged, forcing them to either rebuild or find new ways of understanding.
+            </Description>
+
+            <WhenToUse>
+                Best used when exploring the breakdown of belief systems or certainties. Particularly effective for stories about disillusionment or radical change in perspective. Works well when character growth comes through losing rather than gaining certainty.
+
+                Ideal for philosophical explorations and stories about fundamental change.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Established Framework">
+                    <Element>Show complete belief system</Element>
+                    <Element>Establish character's certainties</Element>
+                    <Element>Demonstrate worldview in action</Element>
+                </Phase>
+
+                <Phase name="Systematic Challenges">
+                    <Element>Series of belief-challenging events</Element>
+                    <Element>Progressive loss of certainty</Element>
+                    <Element>Attempts to maintain framework</Element>
+                </Phase>
+
+                <Phase name="Reconstruction">
+                    <Element>Complete collapse or transformation</Element>
+                    <Element>New understanding emerges</Element>
+                    <Element>Integration or rejection of past beliefs</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Identity Spiral - Different approach to transformation</Structure>
+                <Structure>Threshold Structure - Similar focus on irreversible change</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can become too negative without hope of reconstruction</Pitfall>
+                <Pitfall>Risk of becoming too philosophical/abstract</Pitfall>
+                <Pitfall>May lose reader investment if deconstruction too thorough</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Philosophical Fiction</Genre>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Political Drama</Genre>
+                <Genre>Religious/Spiritual Fiction</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your story involve questioning fundamental beliefs?</Question>
+                <Question>Is your character's worldview challenged systematically?</Question>
+                <Question>Does growth come through losing certainty?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Pressure Cooker Structure" in input("Narrative Structure")}
+        <Structure name="Pressure Cooker Structure">
+            <Description>
+                The Pressure Cooker Structure places characters in a confined situation where external pressures force internal issues to surface. The limited setting intensifies relationships and forces character development through proximity and tension.
+            </Description>
+
+            <WhenToUse>
+                Best used when you want to explore character through intense, confined situations. Particularly effective for stories set in limited time or space. Works well when external pressure reveals character truth.
+
+                Ideal for intense character studies and relationship dramas.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Containment">
+                    <Element>Establish confined situation</Element>
+                    <Element>Set up pressure points</Element>
+                    <Element>Show initial character dynamics</Element>
+                </Phase>
+
+                <Phase name="Pressure Building">
+                    <Element>Increasing external pressure</Element>
+                    <Element>Surfacing internal issues</Element>
+                    <Element>Relationship intensification</Element>
+                    <Element>Progressive revelations</Element>
+                </Phase>
+
+                <Phase name="Breaking Point">
+                    <Element>Maximum pressure moment</Element>
+                    <Element>Character truth revealed</Element>
+                    <Element>Resolution or explosion</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Internal Crisis Arc - Similar focus on pressure and revelation</Structure>
+                <Structure>Threshold Structure - Different approach to character revelation</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can feel artificial if situation too contrived</Pitfall>
+                <Pitfall>Risk of losing tension if pressure not maintained</Pitfall>
+                <Pitfall>May become claustrophobic without relief</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Psychological Thriller</Genre>
+                <Genre>Drama</Genre>
+                <Genre>Single-Location Stories</Genre>
+                <Genre>Character Study</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Can your story work in a confined setting?</Question>
+                <Question>Does external pressure reveal character truth?</Question>
+                <Question>Will relationships intensify under pressure?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Echo Structure" in input("Narrative Structure")}
+        <Structure name="Echo Structure">
+            <Description>
+                The Echo Structure organizes narrative around a significant past event that continues to resonate through the present, with each echo revealing new understanding of the original moment. The structure moves between past and present, showing how history shapes current actions.
+            </Description>
+
+            <WhenToUse>
+                Best used when past events significantly influence present action. Particularly effective for stories about trauma, memory, or understanding history. Works well when present understanding comes through revisiting past events.
+
+                Ideal for stories where past and present interact meaningfully.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Original Event">
+                    <Element>Establish significant past moment</Element>
+                    <Element>Show initial impact</Element>
+                    <Element>Set up questions/mysteries</Element>
+                </Phase>
+
+                <Phase name="Echoes">
+                    <Element>Present triggers of past</Element>
+                    <Element>New perspectives on original event</Element>
+                    <Element>Progressive understanding</Element>
+                    <Element>Revelation of hidden aspects</Element>
+                </Phase>
+
+                <Phase name="Resolution">
+                    <Element>Final understanding of past</Element>
+                    <Element>Integration of past and present</Element>
+                    <Element>New relationship with history</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Ripple Structure - Forward-moving version of consequence chain</Structure>
+                <Structure>Mirror Structure - Different approach to repeated patterns</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can become confusing with too many time shifts</Pitfall>
+                <Pitfall>Risk of losing present momentum in past focus</Pitfall>
+                <Pitfall>May feel repetitive if revelations not significant</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Psychological Drama</Genre>
+                <Genre>Mystery</Genre>
+                <Genre>Historical Fiction</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does a past event shape your present story?</Question>
+                <Question>Can understanding the past change the present?</Question>
+                <Question>Do you want to explore how memory affects current action?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Ripple Structure" in input("Narrative Structure")}
+        <Structure name="Ripple Structure">
+            <Description>
+                The Ripple Structure follows the expanding consequences of a single action or choice, showing how effects spread outward through different characters and situations. It explores causality and interconnection through widening circles of impact.
+            </Description>
+
+            <WhenToUse>
+                Best used when exploring the far-reaching effects of actions. Particularly effective for stories about consequence and responsibility. Works well when showing how individual choices affect communities.
+
+                Ideal for stories about interconnection and causality.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Initial Action">
+                    <Element>Establish triggering event/choice</Element>
+                    <Element>Show immediate consequences</Element>
+                    <Element>Set up potential impact areas</Element>
+                </Phase>
+
+                <Phase name="Expanding Effects">
+                    <Element>Widening circles of impact</Element>
+                    <Element>Unexpected consequences</Element>
+                    <Element>Interconnected reactions</Element>
+                    <Element>Progressive complications</Element>
+                </Phase>
+
+                <Phase name="Resolution">
+                    <Element>Ultimate consequences revealed</Element>
+                    <Element>Understanding of impact</Element>
+                    <Element>Response to responsibility</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Echo Structure - Past-focused version of consequence chain</Structure>
+                <Structure>Network Structure - Similar focus on interconnection</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can lose focus with too many consequences</Pitfall>
+                <Pitfall>Risk of becoming too diffuse</Pitfall>
+                <Pitfall>May lose character connection with wide scope</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Social Drama</Genre>
+                <Genre>Political Fiction</Genre>
+                <Genre>Contemporary Fiction</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your story explore the consequences of a single action?</Question>
+                <Question>Can you show how effects spread beyond initial impact?</Question>
+                <Question>Is interconnection a major theme?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+        {#if "Mosaic Structure" in input("Narrative Structure")}
+        <Structure name="Mosaic Structure">
+            <Description>
+                The Mosaic Structure tells a larger story through multiple independent but interconnected narratives, each offering a different perspective on a central event, theme, or situation. The full picture emerges only through the accumulation of various viewpoints.
+            </Description>
+
+            <WhenToUse>
+                Best used for complex stories requiring multiple perspectives. Particularly effective for exploring large-scale events or social phenomena. Works well when single viewpoint would be insufficient.
+
+                Ideal for stories about community, society, or complex events.
+            </WhenToUse>
+
+            <Components>
+                <Phase name="Individual Narratives">
+                    <Element>Separate character perspectives</Element>
+                    <Element>Unique storylines</Element>
+                    <Element>Different aspects of central theme</Element>
+                </Phase>
+
+                <Phase name="Interconnections">
+                    <Element>Thematic links</Element>
+                    <Element>Crossing paths</Element>
+                    <Element>Shared events from different angles</Element>
+                </Phase>
+
+                <Phase name="Composite Picture">
+                    <Element>Overall understanding emerges</Element>
+                    <Element>Resolution of separate threads</Element>
+                    <Element>Unified meaning revealed</Element>
+                </Phase>
+            </Components>
+
+            <RelatedStructures>
+                <Structure>Network Structure - Similar focus on interconnection</Structure>
+                <Structure>Ripple Structure - Different approach to multiple perspectives</Structure>
+            </RelatedStructures>
+
+            <CommonPitfalls>
+                <Pitfall>Can become fragmented without clear connections</Pitfall>
+                <Pitfall>Risk of losing readers with too many perspectives</Pitfall>
+                <Pitfall>May lack cohesion without strong central theme</Pitfall>
+            </CommonPitfalls>
+
+            <GenreAffinity>
+                <Genre>Literary Fiction</Genre>
+                <Genre>Historical Fiction</Genre>
+                <Genre>Social Commentary</Genre>
+                <Genre>Political Fiction</Genre>
+            </GenreAffinity>
+
+            <ExampleQuestions>
+                <Question>Does your story need multiple perspectives to be complete?</Question>
+                <Question>Can separate narratives illuminate a central theme?</Question>
+                <Question>Would your story benefit from a collective viewpoint?</Question>
+            </ExampleQuestions>
+        </Structure>
+        {#endif}
+    </NarrativeStructure>
+    {#endif}
+
+    {#if input("Story Framework")}
+    <StoryDevelopmentFrameworks>
+        {#if "Plot Driven Story" in input("Story Framework")}
+        <FrameworkType type="Plot Driven Stories">
+            <Definition>
+                Stories where external events and plot developments are the primary drivers of narrative, such as thrillers, adventure stories, or mystery novels.
+            </Definition>
+            <Examples>
+                <Example>The Da Vinci Code</Example>
+                <Example>The Hunger Games</Example>
+                <Example>Jurassic Park</Example>
+            </Examples>
+            <Workflow>
+                <WorkflowStep>
+                    <CoreQuestion>What is the idea/premise?</CoreQuestion>
+                    <AnsweredWhen>There is a one sentence summary that captures the unique element or hook of the story.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What makes this story unique or compelling?</Question>
+                        <Question>What genre expectations should be considered?</Question>
+                        <Question>What emotional response should this story evoke?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Can the premise be stated without relying on comparison to other works?</Check>
+                        <Check>Does the premise suggest inherent conflict or tension?</Check>
+                        <Check>Is the scope appropriate for the intended length?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Premise too generic</Issue>
+                            <Warning>Story lacks distinguishing elements from similar works</Warning>
+                            <Solution>Identify unique angle or combination of elements</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Premise too complex</Issue>
+                            <Warning>Basic concept requires lengthy explanation</Warning>
+                            <Solution>Focus on core dramatic element</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Genre elements feel forced or inconsistent</Condition>
+                            <Action>Reconsider genre or adjust premise to better fit chosen genre</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What is the core conflict?</CoreQuestion>
+                    <AnsweredWhen>A central conflict that drives the story has been identified and can be clearly articulated.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What are the stakes for the protagonist?</Question>
+                        <Question>How does this conflict create tension?</Question>
+                        <Question>Is this conflict sustainable for the story's length?</Question>
+                        <Question>What obstacles prevent easy resolution?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Can the conflict be stated in one sentence without using "and then" or multiple clauses?</Check>
+                        <Check>Does the conflict create meaningful choices for the protagonist?</Check>
+                        <Check>Are the stakes clear and significant to the protagonist?</Check>
+                        <Check>Can this conflict generate multiple scenes of escalating tension?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Conflict too easily resolved</Issue>
+                            <Warning>If there's an obvious solution to the conflict, it won't sustain the story</Warning>
+                            <Solution>Add complications or internal conflicts that prevent simple resolution</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Conflict lacks personal stakes</Issue>
+                            <Warning>Generic "save the world" conflicts often fail to engage without personal connection</Warning>
+                            <Solution>Tie larger conflicts to specific personal consequences for the protagonist</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Discovery of a more compelling conflict during character development</Condition>
+                            <Action>Revisit premise to incorporate stronger conflict</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>Who is the protagonist?</CoreQuestion>
+                    <AnsweredWhen>The main character's core traits, desires, and flaws are defined.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What does the protagonist want vs. what do they need?</Question>
+                        <Question>What flaw or belief must they overcome?</Question>
+                        <Question>How will they change through the story?</Question>
+                        <Question>What makes them compelling to follow?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Can you describe the character without mentioning appearance or backstory?</Check>
+                        <Check>Does the character have clear, specific desires?</Check>
+                        <Check>Are their flaws and strengths connected to the story's conflict?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Passive protagonist</Issue>
+                            <Warning>Character merely reacts to events without driving the story</Warning>
+                            <Solution>Give them clear goals and initiative in pursuing them</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Perfect character</Issue>
+                            <Warning>Lack of flaws or room for growth</Warning>
+                            <Solution>Add meaningful flaws that complicate their journey</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Character's actions consistently contradict stated personality</Condition>
+                            <Action>Revise either character traits or plot to ensure consistency</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What is the thematic argument?</CoreQuestion>
+                    <AnsweredWhen>The story's central message or exploration can be stated as a debatable premise.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What truth about life/human nature is being explored?</Question>
+                        <Question>How will different characters represent different views on this theme?</Question>
+                        <Question>How does the resolution prove or challenge the theme?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Can the theme be debated from multiple valid perspectives?</Check>
+                        <Check>Does the theme naturally emerge from the conflict and characters?</Check>
+                        <Check>Does the theme avoid being overly moralistic or preachy?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Disconnected theme</Issue>
+                            <Warning>Theme feels separate from the main story events</Warning>
+                            <Solution>Integrate theme into character choices and conflict resolution</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Heavy-handed messaging</Issue>
+                            <Warning>Story feels like it exists only to prove a point</Warning>
+                            <Solution>Focus on exploration rather than assertion of theme</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Resolution contradicts intended theme</Condition>
+                            <Action>Adjust either theme or plot to ensure thematic consistency</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What is the story structure?</CoreQuestion>
+                    <AnsweredWhen>The major plot points and narrative shape have been identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What inciting incident disrupts the status quo?</Question>
+                        <Question>What is the point of no return?</Question>
+                        <Question>What is the lowest point/dark night of the soul?</Question>
+                        <Question>How does the climax resolve the central conflict?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each major plot point emerge from character choices?</Check>
+                        <Check>Does tension escalate naturally between plot points?</Check>
+                        <Check>Does the structure support the emotional journey?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Arbitrary plot points</Issue>
+                            <Warning>Events happen without clear causation</Warning>
+                            <Solution>Ensure each major event follows from previous choices and actions</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Unearned resolution</Issue>
+                            <Warning>Climax doesn't feel inevitable yet surprising</Warning>
+                            <Solution>Build proper setup through earlier plot points</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>New subplot affects timing of major plot points</Condition>
+                            <Action>Adjust structure to maintain pacing and tension</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What are the major plot threads?</CoreQuestion>
+                    <AnsweredWhen>All significant subplots and their connection to the main plot are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>How does each subplot relate to the core conflict or theme?</Question>
+                        <Question>How do these threads interweave and support each other?</Question>
+                        <Question>What does each subplot reveal about the characters?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each subplot have its own arc and resolution?</Check>
+                        <Check>Do subplots enhance rather than distract from the main plot?</Check>
+                        <Check>Are subplot resolutions tied to character growth?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Disconnected subplots</Issue>
+                            <Warning>Subplot feels like it belongs in a different story</Warning>
+                            <Solution>Strengthen thematic or plot connections to main story</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Competing plots</Issue>
+                            <Warning>Subplot overshadows or undermines main plot</Warning>
+                            <Solution>Adjust subplot scope or integrate more thoroughly with main conflict</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Subplot resolution contradicts main plot needs</Condition>
+                            <Action>Revise subplot to better support main story</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What are the key scenes?</CoreQuestion>
+                    <AnsweredWhen>Essential narrative moments that drive the story forward are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What changes in each scene?</Question>
+                        <Question>How does each scene advance plot, character, or theme?</Question>
+                        <Question>What is the emotional impact of each scene?</Question>
+                        <Question>How does each scene raise stakes or increase tension?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each scene serve multiple story purposes?</Check>
+                        <Check>Is there clear cause and effect between scenes?</Check>
+                        <Check>Does each scene have a clear dramatic question?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Static scenes</Issue>
+                            <Warning>Scene doesn't change story status quo</Warning>
+                            <Solution>Ensure each scene creates meaningful change</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Redundant scenes</Issue>
+                            <Warning>Multiple scenes serve same story purpose</Warning>
+                            <Solution>Combine scenes or find new purpose for each</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Scene emotional impact conflicts with surrounding scenes</Condition>
+                            <Action>Adjust scene content or ordering to create proper emotional flow</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>How do scenes flow together?</CoreQuestion>
+                    <AnsweredWhen>Scene ordering creates proper pacing and emotional resonance.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>How does tension rise and fall?</Question>
+                        <Question>Are there proper setups and payoffs?</Question>
+                        <Question>Do chapter breaks occur at effective points?</Question>
+                        <Question>How does the emotional journey progress?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each scene transition naturally to the next?</Check>
+                        <Check>Is there variety in scene length and intensity?</Check>
+                        <Check>Do chapter endings encourage continued reading?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Pacing issues</Issue>
+                            <Warning>Too many high-intensity or low-intensity scenes in a row</Warning>
+                            <Solution>Vary scene intensity and provide breathing room</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Weak transitions</Issue>
+                            <Warning>Scenes feel disconnected or jumpy</Warning>
+                            <Solution>Strengthen cause-and-effect relationships between scenes</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>New scene addition disrupts emotional pacing</Condition>
+                            <Action>Adjust surrounding scenes or find better placement</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+            </Workflow>
+        </FrameworkType>
+        {#elseif "Character Driven Story" in input("Story Framework")}
+        <FrameworkType type="Character Driven Stories">
+            <Definition>
+                Stories where internal journeys and relationship dynamics are the primary drivers of narrative, such as literary fiction, romance, or coming-of-age stories.
+            </Definition>
+            <Examples>
+                <Example>Pride and Prejudice</Example>
+                <Example>The Great Gatsby</Example>
+                <Example>Ethan Frome</Example>
+            </Examples>
+            <Workflow>
+                <WorkflowStep>
+                    <CoreQuestion>Who are the central characters and how do they relate?</CoreQuestion>
+                    <AnsweredWhen>The key character dynamics and relationships are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What draws these characters together or pushes them apart?</Question>
+                        <Question>How do their personalities create natural tension?</Question>
+                        <Question>What do they want from or mean to each other?</Question>
+                        <Question>What misconceptions do they have about each other?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Are the character dynamics complex enough to drive a story?</Check>
+                        <Check>Do the relationships have room to evolve?</Check>
+                        <Check>Does each main character have a distinct perspective and voice?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Static relationships</Issue>
+                            <Warning>Characters start and stay in the same dynamic</Warning>
+                            <Solution>Identify potential for change or revelation in relationships</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>One-dimensional interactions</Issue>
+                            <Warning>Characters relate in only one way</Warning>
+                            <Solution>Add layers of complexity to relationships</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Character interactions feel forced or unnatural</Condition>
+                            <Action>Revisit character motivations and personalities</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What are the characters' internal landscapes?</CoreQuestion>
+                    <AnsweredWhen>Each character's beliefs, fears, desires, and blind spots are clear.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What do they believe about themselves?</Question>
+                        <Question>What do they fear about themselves?</Question>
+                        <Question>What do they need to learn?</Question>
+                        <Question>What prevents them from changing?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Are their internal conflicts compelling and relatable?</Check>
+                        <Check>Do their beliefs and fears influence their actions?</Check>
+                        <Check>Is there room for meaningful personal growth?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Superficial internal life</Issue>
+                            <Warning>Character's inner world lacks complexity</Warning>
+                            <Solution>Deepen understanding of character's psychology</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What is the social/emotional context?</CoreQuestion>
+                    <AnsweredWhen>The world's social rules and emotional landscape are defined.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What social pressures affect the characters?</Question>
+                        <Question>What are the unwritten rules they must navigate?</Question>
+                        <Question>What are the consequences of breaking social norms?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does the social context create natural pressure points?</Check>
+                        <Check>Are the social rules clear enough to create tension?</Check>
+                    </Validation>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What catalyzes change?</CoreQuestion>
+                    <AnsweredWhen>The events or revelations that force character growth are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What forces characters to confront their flaws?</Question>
+                        <Question>What disrupts their comfortable patterns?</Question>
+                        <Question>What makes their current behavior unsustainable?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Do catalysts arise naturally from character interactions?</Check>
+                        <Check>Are the catalysts powerful enough to force change?</Check>
+                    </Validation>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>How do relationships evolve?</CoreQuestion>
+                    <AnsweredWhen>The progression of key relationships is mapped.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What key moments change how characters see each other?</Question>
+                        <Question>How do power dynamics shift?</Question>
+                        <Question>What misunderstandings need to be resolved?</Question>
+                    </SubQuestions>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What are the key scenes of revelation or change?</CoreQuestion>
+                    <AnsweredWhen>Important moments of character development are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What realizations do characters have?</Question>
+                        <Question>What choices must they make?</Question>
+                        <Question>How do these moments affect relationships?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each scene reveal something meaningful about characters?</Check>
+                        <Check>Are character changes earned through experience?</Check>
+                    </Validation>
+                </WorkflowStep>
+            </Workflow>
+        </FrameworkType>
+        {#elseif "Hybrid Story" in input("Story Framework")}
+        <FrameworkType type="Hybrid Stories">
+            <Definition>
+                Stories where both approaches are prominent. The external journey of the plot mirrors, contrasts, and/or drives the internal journey of the characters, and the internal journey of the characters influences the outcome of the plot.
+            </Definition>
+            <Examples>
+                <Example>The Lord of the Rings</Example>
+                <Example>To Kill a Mockingbird</Example>
+                <Example>Harry Potter</Example>
+            </Examples>
+            <Instructions>
+                For stories that balance both approaches:
+                1. Use character driven workflow for relationship and character development
+                2. Use plot driven workflow for external events and structure
+                3. Ensure developments in one area support and enhance the other
+            </Instructions>
+            <IntegrationPoints>
+                <Point>Character arcs should align with plot structure</Point>
+                <Point>Major plot points should drive character development</Point>
+                <Point>Character relationships should complicate or assist plot goals</Point>
+                <Point>Internal conflicts should mirror external conflicts</Point>
+            </IntegrationPoints>
+        </FrameworkType>
+        {#endif}
+    </StoryDevelopmentFrameworks>
+    {#else}
+    <StoryDevelopmentFrameworks>
+        Help the author select a development framework using the options below:
+
+        <FrameworkType type="Plot Driven Stories">
+            <Definition>
+                Stories where external events and plot developments are the primary drivers of narrative, such as thrillers, adventure stories, or mystery novels.
+            </Definition>
+            <Examples>
+                <Example>The Da Vinci Code</Example>
+                <Example>The Hunger Games</Example>
+                <Example>Jurassic Park</Example>
+            </Examples>
+            <Workflow>
+                <WorkflowStep>
+                    <CoreQuestion>What is the idea/premise?</CoreQuestion>
+                    <AnsweredWhen>There is a one sentence summary that captures the unique element or hook of the story.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What makes this story unique or compelling?</Question>
+                        <Question>What genre expectations should be considered?</Question>
+                        <Question>What emotional response should this story evoke?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Can the premise be stated without relying on comparison to other works?</Check>
+                        <Check>Does the premise suggest inherent conflict or tension?</Check>
+                        <Check>Is the scope appropriate for the intended length?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Premise too generic</Issue>
+                            <Warning>Story lacks distinguishing elements from similar works</Warning>
+                            <Solution>Identify unique angle or combination of elements</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Premise too complex</Issue>
+                            <Warning>Basic concept requires lengthy explanation</Warning>
+                            <Solution>Focus on core dramatic element</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Genre elements feel forced or inconsistent</Condition>
+                            <Action>Reconsider genre or adjust premise to better fit chosen genre</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What is the core conflict?</CoreQuestion>
+                    <AnsweredWhen>A central conflict that drives the story has been identified and can be clearly articulated.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What are the stakes for the protagonist?</Question>
+                        <Question>How does this conflict create tension?</Question>
+                        <Question>Is this conflict sustainable for the story's length?</Question>
+                        <Question>What obstacles prevent easy resolution?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Can the conflict be stated in one sentence without using "and then" or multiple clauses?</Check>
+                        <Check>Does the conflict create meaningful choices for the protagonist?</Check>
+                        <Check>Are the stakes clear and significant to the protagonist?</Check>
+                        <Check>Can this conflict generate multiple scenes of escalating tension?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Conflict too easily resolved</Issue>
+                            <Warning>If there's an obvious solution to the conflict, it won't sustain the story</Warning>
+                            <Solution>Add complications or internal conflicts that prevent simple resolution</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Conflict lacks personal stakes</Issue>
+                            <Warning>Generic "save the world" conflicts often fail to engage without personal connection</Warning>
+                            <Solution>Tie larger conflicts to specific personal consequences for the protagonist</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Discovery of a more compelling conflict during character development</Condition>
+                            <Action>Revisit premise to incorporate stronger conflict</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>Who is the protagonist?</CoreQuestion>
+                    <AnsweredWhen>The main character's core traits, desires, and flaws are defined.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What does the protagonist want vs. what do they need?</Question>
+                        <Question>What flaw or belief must they overcome?</Question>
+                        <Question>How will they change through the story?</Question>
+                        <Question>What makes them compelling to follow?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Can you describe the character without mentioning appearance or backstory?</Check>
+                        <Check>Does the character have clear, specific desires?</Check>
+                        <Check>Are their flaws and strengths connected to the story's conflict?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Passive protagonist</Issue>
+                            <Warning>Character merely reacts to events without driving the story</Warning>
+                            <Solution>Give them clear goals and initiative in pursuing them</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Perfect character</Issue>
+                            <Warning>Lack of flaws or room for growth</Warning>
+                            <Solution>Add meaningful flaws that complicate their journey</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Character's actions consistently contradict stated personality</Condition>
+                            <Action>Revise either character traits or plot to ensure consistency</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What is the thematic argument?</CoreQuestion>
+                    <AnsweredWhen>The story's central message or exploration can be stated as a debatable premise.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What truth about life/human nature is being explored?</Question>
+                        <Question>How will different characters represent different views on this theme?</Question>
+                        <Question>How does the resolution prove or challenge the theme?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Can the theme be debated from multiple valid perspectives?</Check>
+                        <Check>Does the theme naturally emerge from the conflict and characters?</Check>
+                        <Check>Does the theme avoid being overly moralistic or preachy?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Disconnected theme</Issue>
+                            <Warning>Theme feels separate from the main story events</Warning>
+                            <Solution>Integrate theme into character choices and conflict resolution</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Heavy-handed messaging</Issue>
+                            <Warning>Story feels like it exists only to prove a point</Warning>
+                            <Solution>Focus on exploration rather than assertion of theme</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Resolution contradicts intended theme</Condition>
+                            <Action>Adjust either theme or plot to ensure thematic consistency</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What is the story structure?</CoreQuestion>
+                    <AnsweredWhen>The major plot points and narrative shape have been identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What inciting incident disrupts the status quo?</Question>
+                        <Question>What is the point of no return?</Question>
+                        <Question>What is the lowest point/dark night of the soul?</Question>
+                        <Question>How does the climax resolve the central conflict?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each major plot point emerge from character choices?</Check>
+                        <Check>Does tension escalate naturally between plot points?</Check>
+                        <Check>Does the structure support the emotional journey?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Arbitrary plot points</Issue>
+                            <Warning>Events happen without clear causation</Warning>
+                            <Solution>Ensure each major event follows from previous choices and actions</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Unearned resolution</Issue>
+                            <Warning>Climax doesn't feel inevitable yet surprising</Warning>
+                            <Solution>Build proper setup through earlier plot points</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>New subplot affects timing of major plot points</Condition>
+                            <Action>Adjust structure to maintain pacing and tension</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What are the major plot threads?</CoreQuestion>
+                    <AnsweredWhen>All significant subplots and their connection to the main plot are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>How does each subplot relate to the core conflict or theme?</Question>
+                        <Question>How do these threads interweave and support each other?</Question>
+                        <Question>What does each subplot reveal about the characters?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each subplot have its own arc and resolution?</Check>
+                        <Check>Do subplots enhance rather than distract from the main plot?</Check>
+                        <Check>Are subplot resolutions tied to character growth?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Disconnected subplots</Issue>
+                            <Warning>Subplot feels like it belongs in a different story</Warning>
+                            <Solution>Strengthen thematic or plot connections to main story</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Competing plots</Issue>
+                            <Warning>Subplot overshadows or undermines main plot</Warning>
+                            <Solution>Adjust subplot scope or integrate more thoroughly with main conflict</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Subplot resolution contradicts main plot needs</Condition>
+                            <Action>Revise subplot to better support main story</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What are the key scenes?</CoreQuestion>
+                    <AnsweredWhen>Essential narrative moments that drive the story forward are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What changes in each scene?</Question>
+                        <Question>How does each scene advance plot, character, or theme?</Question>
+                        <Question>What is the emotional impact of each scene?</Question>
+                        <Question>How does each scene raise stakes or increase tension?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each scene serve multiple story purposes?</Check>
+                        <Check>Is there clear cause and effect between scenes?</Check>
+                        <Check>Does each scene have a clear dramatic question?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Static scenes</Issue>
+                            <Warning>Scene doesn't change story status quo</Warning>
+                            <Solution>Ensure each scene creates meaningful change</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Redundant scenes</Issue>
+                            <Warning>Multiple scenes serve same story purpose</Warning>
+                            <Solution>Combine scenes or find new purpose for each</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Scene emotional impact conflicts with surrounding scenes</Condition>
+                            <Action>Adjust scene content or ordering to create proper emotional flow</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>How do scenes flow together?</CoreQuestion>
+                    <AnsweredWhen>Scene ordering creates proper pacing and emotional resonance.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>How does tension rise and fall?</Question>
+                        <Question>Are there proper setups and payoffs?</Question>
+                        <Question>Do chapter breaks occur at effective points?</Question>
+                        <Question>How does the emotional journey progress?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each scene transition naturally to the next?</Check>
+                        <Check>Is there variety in scene length and intensity?</Check>
+                        <Check>Do chapter endings encourage continued reading?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Pacing issues</Issue>
+                            <Warning>Too many high-intensity or low-intensity scenes in a row</Warning>
+                            <Solution>Vary scene intensity and provide breathing room</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>Weak transitions</Issue>
+                            <Warning>Scenes feel disconnected or jumpy</Warning>
+                            <Solution>Strengthen cause-and-effect relationships between scenes</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>New scene addition disrupts emotional pacing</Condition>
+                            <Action>Adjust surrounding scenes or find better placement</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+            </Workflow>
+        </FrameworkType>
+        <FrameworkType type="Character Driven Stories">
+            <Definition>
+                Stories where internal journeys and relationship dynamics are the primary drivers of narrative, such as literary fiction, romance, or coming-of-age stories.
+            </Definition>
+            <Examples>
+                <Example>Pride and Prejudice</Example>
+                <Example>The Great Gatsby</Example>
+                <Example>Ethan Frome</Example>
+            </Examples>
+            <Workflow>
+                <WorkflowStep>
+                    <CoreQuestion>Who are the central characters and how do they relate?</CoreQuestion>
+                    <AnsweredWhen>The key character dynamics and relationships are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What draws these characters together or pushes them apart?</Question>
+                        <Question>How do their personalities create natural tension?</Question>
+                        <Question>What do they want from or mean to each other?</Question>
+                        <Question>What misconceptions do they have about each other?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Are the character dynamics complex enough to drive a story?</Check>
+                        <Check>Do the relationships have room to evolve?</Check>
+                        <Check>Does each main character have a distinct perspective and voice?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Static relationships</Issue>
+                            <Warning>Characters start and stay in the same dynamic</Warning>
+                            <Solution>Identify potential for change or revelation in relationships</Solution>
+                        </Pitfall>
+                        <Pitfall>
+                            <Issue>One-dimensional interactions</Issue>
+                            <Warning>Characters relate in only one way</Warning>
+                            <Solution>Add layers of complexity to relationships</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                    <RevisionTriggers>
+                        <Trigger>
+                            <Condition>Character interactions feel forced or unnatural</Condition>
+                            <Action>Revisit character motivations and personalities</Action>
+                        </Trigger>
+                    </RevisionTriggers>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What are the characters' internal landscapes?</CoreQuestion>
+                    <AnsweredWhen>Each character's beliefs, fears, desires, and blind spots are clear.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What do they believe about themselves?</Question>
+                        <Question>What do they fear about themselves?</Question>
+                        <Question>What do they need to learn?</Question>
+                        <Question>What prevents them from changing?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Are their internal conflicts compelling and relatable?</Check>
+                        <Check>Do their beliefs and fears influence their actions?</Check>
+                        <Check>Is there room for meaningful personal growth?</Check>
+                    </Validation>
+                    <PossiblePitfalls>
+                        <Pitfall>
+                            <Issue>Superficial internal life</Issue>
+                            <Warning>Character's inner world lacks complexity</Warning>
+                            <Solution>Deepen understanding of character's psychology</Solution>
+                        </Pitfall>
+                    </PossiblePitfalls>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What is the social/emotional context?</CoreQuestion>
+                    <AnsweredWhen>The world's social rules and emotional landscape are defined.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What social pressures affect the characters?</Question>
+                        <Question>What are the unwritten rules they must navigate?</Question>
+                        <Question>What are the consequences of breaking social norms?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does the social context create natural pressure points?</Check>
+                        <Check>Are the social rules clear enough to create tension?</Check>
+                    </Validation>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What catalyzes change?</CoreQuestion>
+                    <AnsweredWhen>The events or revelations that force character growth are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What forces characters to confront their flaws?</Question>
+                        <Question>What disrupts their comfortable patterns?</Question>
+                        <Question>What makes their current behavior unsustainable?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Do catalysts arise naturally from character interactions?</Check>
+                        <Check>Are the catalysts powerful enough to force change?</Check>
+                    </Validation>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>How do relationships evolve?</CoreQuestion>
+                    <AnsweredWhen>The progression of key relationships is mapped.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What key moments change how characters see each other?</Question>
+                        <Question>How do power dynamics shift?</Question>
+                        <Question>What misunderstandings need to be resolved?</Question>
+                    </SubQuestions>
+                </WorkflowStep>
+
+                <WorkflowStep>
+                    <CoreQuestion>What are the key scenes of revelation or change?</CoreQuestion>
+                    <AnsweredWhen>Important moments of character development are identified.</AnsweredWhen>
+                    <SubQuestions>
+                        <Question>What realizations do characters have?</Question>
+                        <Question>What choices must they make?</Question>
+                        <Question>How do these moments affect relationships?</Question>
+                    </SubQuestions>
+                    <Validation>
+                        <Check>Does each scene reveal something meaningful about characters?</Check>
+                        <Check>Are character changes earned through experience?</Check>
+                    </Validation>
+                </WorkflowStep>
+            </Workflow>
+        </FrameworkType>
+        <FrameworkType type="Hybrid Stories">
+            <Definition>
+                Stories where both approaches are prominent. The external journey of the plot mirrors, contrasts, and/or drives the internal journey of the characters, and the internal journey of the characters influences the outcome of the plot.
+            </Definition>
+            <Examples>
+                <Example>The Lord of the Rings</Example>
+                <Example>To Kill a Mockingbird</Example>
+                <Example>Harry Potter</Example>
+            </Examples>
+            <Instructions>
+                For stories that balance both approaches:
+                1. Use character driven workflow for relationship and character development
+                2. Use plot driven workflow for external events and structure
+                3. Ensure developments in one area support and enhance the other
+            </Instructions>
+            <IntegrationPoints>
+                <Point>Character arcs should align with plot structure</Point>
+                <Point>Major plot points should drive character development</Point>
+                <Point>Character relationships should complicate or assist plot goals</Point>
+                <Point>Internal conflicts should mirror external conflicts</Point>
+            </IntegrationPoints>
+        </FrameworkType>
+    </StoryDevelopmentFrameworks>
+    {#endif}
+</StorySettings>

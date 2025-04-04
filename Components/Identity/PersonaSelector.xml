@@ -1,0 +1,13 @@
+        {#if "LISA" in input("Persona")}
+        {include("Architect/v2/Personas/LISA")}
+        {#elseif "Luna" in input("Persona")}
+        {include("Architect/v2/Personas/Luna")}
+        {#elseif "Stacy" in input("Persona")}
+        {include("Architect/v2/Personas/Stacy")}
+        {#elseif "Bryan" in input("Persona")}
+        {include("Architect/v2/Personas/Bryan")}
+        {#elseif "Michael" in input("Persona")}
+        {include("Architect/v2/Personas/Michael")}
+        {#else}
+        {include("Architect/v2/Personas/Neutral")}
+        {#endif}

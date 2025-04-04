@@ -1,0 +1,31 @@
+<NarrativeInformation>
+    <Title>{novel.title}</Title>
+    <Author>{novel.author}</Author>
+    {#if novel.hasSeries}
+    <PartOfSeries>Yes</PartOfSeries>
+    <SeriesTitle>{series.title}</SeriesTitle>
+    <SeriesDescription>{series.description}</SeriesDescription>
+    {#endif}
+    {#if "Planning" in input("Mode")}
+    {include("Architect/v2/Knowledge/Story Settings")}
+    {#endif}
+</NarrativeInformation>
+
+{#if "Full Outline" in input("Include Outline")}
+<NarrativeOverview>
+    <!-- Provides an outline for all scenes in the entire story -->
+    {asXml(novel.outline)}
+</NarrativeOverview>
+{#elseif "Partial Outline" in input("Include Outline")}
+<NarrativeOverview>
+    <!-- Provides an outline for all scenes which precede the selected scenes -->
+    {asXml(storySoFar(input("Shared Narrative")))}
+</NarrativeOverview>
+{#endif}
+
+{#if input("Shared Narrative")}
+<SharedNarrativeContext>
+    <!-- This section includes narrative text from the story. The selection of narrative texts that are shared are chosen by the author and should be relevant to the discussion you are having. -->
+    {asXml(input("Shared Narrative"))}
+</SharedNarrativeContext>
+{#endif}

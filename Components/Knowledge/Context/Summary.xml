@@ -1,0 +1,83 @@
+<NarrativeInformation>
+    <Title>{novel.title}</Title>
+    <Author>{novel.author}</Author>
+    {#if novel.hasSeries}
+    <PartOfSeries>Yes</PartOfSeries>
+    <SeriesTitle>{series.title}</SeriesTitle>
+    <SeriesDescription>{series.description}</SeriesDescription>
+    {#endif}
+</NarrativeInformation>
+
+{#if "Full Outline" in input("Include Outline")}
+<NarrativeOverview>
+    <!-- Provides an outline for all scenes in the entire story -->
+    {asXml(novel.outline)}
+</NarrativeOverview>
+{#elseif "Partial Outline" in input("Include Outline")}
+<NarrativeOverview>
+    <!-- Provides an outline for all scenes which precede the current scene -->
+    {asXml(storySoFar(input("Focus")))}
+</NarrativeOverview>
+{#endif}
+
+{#if input("Focus")}
+<CurrentFocus>
+    {#if isScene(input("Focus"))}
+    <CurrentSceneInfo>
+        {#if scene.hasSubtitle(input("Focus"))}
+        <SceneTitle>
+            {scene.subtitle(input("Focus"))}
+        </SceneTitle>
+        {#endif}
+
+        {#if scene.hasLabels(input("Focus"))}
+        <SceneLabels>
+            <!-- These are meta-information tags for the scene. -->
+            {asXml(scene.labels(input("Focus")))}
+        </SceneLabels>
+        {#endif}
+
+        <SceneSummary>
+            <!-- This is the summary of the scene, used for outlining and planning. -->
+            {scene.summary(input("Focus"))}
+        </SceneSummary>
+    </CurrentSceneInfo>
+    {#elseif isChapter(input("Focus"))}
+    <CurrentChapterInfo>
+        <ChapterNumber>
+            {chapter.number(input("Focus"))}
+        </ChapterNumber>
+
+        {#if chapter.title(input("Focus"))}
+        <ChapterTitle>
+            {chapter.title(input("Focus"))}
+        </ChapterTitle>
+        {#endif}
+
+        {#if chapter.summary(input("Focus"))}
+        <ChapterSummary>
+            {chapter.summary(input("Focus"))}
+        </ChapterSummary>
+        {#endif}
+    </CurrentChapterInfo>
+    {#elseif isAct(input("Focus"))}
+    <CurrentActInfo>
+        <ActNumber>
+            {act.number(input("Focus"))}
+        </ActNumber>
+
+        {#if act.title(input("Focus"))}
+        <ActTitle>
+            {act.title(input("Focus"))}
+        </ActTitle>
+        {#endif}
+
+        {#if act.summary(input("Focus"))}
+        <ActSummary>
+            {act.summary(input("Focus"))}
+        </ActSummary>
+        {#endif}
+    </CurrentActInfo>
+    {#endif}
+</CurrentFocus>
+{#endif}

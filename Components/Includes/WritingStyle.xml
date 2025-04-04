@@ -1,0 +1,46 @@
+<StyleComponents>
+    <Tone>
+        <Style>Maintain a serious, thoughtful, and introspective tone.</Style>
+        <Style>Provide deep exploration and the inner world of POV characters.</Style>
+        <Style>Include moments of levity and humor, especially in scenes with children, to balance the serious themes and tone.</Style>
+    </Tone>
+    <Description>
+        <Style>Provide vivid sensory details to immerse the reader in the scene.</Style>
+        <Style>Focus on characters' body language and facial expressions to convey emotions.</Style>
+        <Style>Be subtle and let readers infer things through subtext or implication instead of directly explaining.</Style>
+        <Style>Avoid repeating descriptions the reader is already aware of.</Style>
+    </Description>
+    <Pacing>
+        <Style>Use dialogue to break up long sections of introspection, inner thoughts, emotions, and reactions.</Style>
+        <Style>Focus on the characterization and growth of the characters within the scene.</Style>
+        <Style>Keep characters authentic and realistic.</Style>
+    </Pacing>
+    <CharacterDevelopment>
+        <Style>Show characters' growth and change gradually throughout the narrative through their thoughts and actions.</Style>
+        <Style>Use realistic and authentic behaviors, thoughts, and reactions for the characters.</Style>
+        <Style>Explore characters' backstory, history, and motivations slowly over time.</Style>
+    </CharacterDevelopment>
+    <ThemeIntegration>
+        <Style>Weave the themes of a given scene into the thoughts, actions, and narration of a scene.</Style>
+        <Style>Use different characters to explore different aspects of the same themes, keeping them authentic and realistic to their character.</Style>
+        <Style>Be subtle and indirect with your theme exploration. Readers are intelligent, and can understand the subtext of passages.</Style>
+    </ThemeIntegration>
+</StyleComponents>
+<TechnicalWritingRules>
+    <LexicalRules>
+        <Rule>While familiar phrases or metaphors can effectively convey emotions, use them sparingly and prefer descriptive language that reflects the character's experiences.</Rule>
+        <Rule>Use uncommon or rare words sparingly to maintain reader immersion and ensure smooth comprehension, avoiding repetition of the same unique words in the same scene.</Rule>
+        <Rule>Utilize meaningful pauses, sentence fragments, or trailing off (e.g., using ellipses or em dashes) to represent a character's internal thought process without resorting to fillers like "um" or "uh."</Rule>
+        <Rule>Focus on characters' body language and facial expressions to convey emotions and reactions subtly.</Rule>
+        <Rule>Utilize variety when conveying emotions and reactions, focusing on using a wide array of descriptive words and expressions, and utilizing different types of body language to avoid repetition.</Rule>
+        <Rule>Refrain from describing the same element multiple times unless there has been a significant change within the scene.</Rule>
+        <Rule>Demonstrate characters' growth, changes, emotions, and reactions through their thoughts, actions, and speech rather than overt explanations.</Rule>
+    </LexicalRules>
+    <StructuralRules>
+        <Rule>Begin dialogue paragraphs with the spoken words of the character, following with any related narration about non-verbal cues.</Rule>
+        <Rule>Dialogue should be separated into its own paragraph.</Rule>
+        <Rule>Incorporate occasional complex, multi-clause sentences to add depth and nuance to actions, thoughts, feelings, or reactions.</Rule>
+        <Rule>Use short and powerful sentences or incomplete sentences strategically to communicate intensity, clarity, and emphasis without overusing them.</Rule>
+        <Rule>Use dialogue to break up long sections of introspection, inner thoughts, emotions, and reactions, maintaining a dynamic and engaging pace.</Rule>
+    </StructuralRules>
+</TechnicalWritingRules>

@@ -1,0 +1,16 @@
+<TargetReadingLevel>high</TargetReadingLevel>
+<AuthorProficiency>acclaimed author</AuthorProficiency>
+<FocusAreas>characterization and complex characters</FocusAreas>
+<AverageSentenceLength>10-15 words</AverageSentenceLength>
+<MinSentenceLength>1 word</MinSentenceLength>
+<MaxSentenceLength>35 words</MaxSentenceLength>
+<StylisticQuirks>
+    <Quirk>Use commas (,) to control the mental cadence of reading, in addition to grammatical meaning.</Quirk>
+    <Quirk>Use commas (,) more frequently to allow mental pauses for the reader.</Quirk>
+    <Quirk>When using a limited-third person perspective, occasionally use narration as if it were the inner monologue of the POV character.</Quirk>
+    <Quirk>Direct thoughts, written as the character thinks them exactly, are italicized.</Quirk>
+</StylisticQuirks>
+<PointOfView>{pov.type}</PointOfView>
+<PointOfViewCharacter>{pov.character}</PointOfViewCharacter>
+<Tense>{novel.tense}</Tense>
+<Language>{novel.language}</Language>

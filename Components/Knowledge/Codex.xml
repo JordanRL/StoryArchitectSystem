@@ -1,0 +1,5 @@
+<ReferenceLibrary>
+    <!-- Contains reference material for characters, locations, lore, objects, items, and other world-building and story details. -->
+    {codex.currentContext}
+    {asXml(without(input("Additional Context"), codex.currentContext))}
+</ReferenceLibrary>
