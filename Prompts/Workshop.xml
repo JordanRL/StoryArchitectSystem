@@ -108,13 +108,17 @@
             {include("Architect/v2/ResponseStructures/Planning/Brainstorming")}
         {#elseif "Outlining" in input("Planning Mode")}
             {include("Architect/v2/ResponseStructures/Planning/Outlining")}
+        {#elseif "Theme Document" in input("Planning Mode")}
+            {include("Architect/v2/ResponseStructures/Planning/Themes")}
+        {#elseif "Character Document" in input("Planning Mode")}
+            {include("Architect/v2/ResponseStructures/Planning/Characters")}
         {#endif}
     {#elseif "Generate" in input("Mode")}
         {#if "Scene Beats" in input("Generate Mode")}
             {include("Architect/v2/ResponseStructures/Generate/Scene Beats")}
-        {#elseif "Theme Document" in input("Generate Mode")}
+        {#elseif "Themes" in input("Generate Mode")}
             {include("Architect/v2/ResponseStructures/Generate/Themes")}
-        {#elseif "Character Document" in input("Generate Mode")}
+        {#elseif "Characters" in input("Generate Mode")}
             {include("Architect/v2/ResponseStructures/Generate/Characters")}
         {#endif}
     {#elseif "Chat" in input("Mode")}
@@ -161,13 +165,17 @@
             {include("Architect/v2/OutputStructures/Planning/Brainstorming")}
         {#elseif "Outlining" in input("Planning Mode")}
             {include("Architect/v2/OutputStructures/Planning/Outlining")}
+        {#elseif "Theme Document" in input("Planning Mode")}
+            {include("Architect/v2/OutputStructures/Planning/Themes")}
+        {#elseif "Character Document" in input("Planning Mode")}
+            {include("Architect/v2/OutputStructures/Planning/Characters")}
         {#endif}
     {#elseif "Generate" in input("Mode")}
         {#if "Scene Beats" in input("Generate Mode")}
             {include("Architect/v2/OutputStructures/Generate/Scene Beats")}
-        {#elseif "Theme Document" in input("Generate Mode")}
+        {#elseif "Themes" in input("Generate Mode")}
             {include("Architect/v2/OutputStructures/Generate/Themes")}
-        {#elseif "Character Document" in input("Generate Mode")}
+        {#elseif "Characters" in input("Generate Mode")}
             {include("Architect/v2/OutputStructures/Generate/Characters")}
         {#endif}
     {#elseif "Chat" in input("Mode")}
