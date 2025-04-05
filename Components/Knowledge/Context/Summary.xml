@@ -1,6 +1,9 @@
 <NarrativeInformation>
     <Title>{novel.title}</Title>
     <Author>{novel.author}</Author>
+    {#if input("Genre")}
+    <Genre>{input("Genre")}</Genre>
+    {#endif}
     {#if novel.hasSeries}
     <PartOfSeries>Yes</PartOfSeries>
     <SeriesTitle>{series.title}</SeriesTitle>
@@ -8,12 +11,12 @@
     {#endif}
 </NarrativeInformation>
 
-{#if "Full Outline" in input("Include Outline")}
+{#if input("Include Outline") is "Full Outline"}
 <NarrativeOverview>
     <!-- Provides an outline for all scenes in the entire story -->
     {asXml(novel.outline)}
 </NarrativeOverview>
-{#elseif "Partial Outline" in input("Include Outline")}
+{#elseif input("Include Outline") is "Partial Outline"}
 <NarrativeOverview>
     <!-- Provides an outline for all scenes which precede the current scene -->
     {asXml(storySoFar(input("Focus")))}

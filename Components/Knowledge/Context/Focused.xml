@@ -1,6 +1,9 @@
 <NarrativeInformation>
     <Title>{novel.title}</Title>
     <Author>{novel.author}</Author>
+    {#if input("Genre")}
+    <Genre>{input("Genre")}</Genre>
+    {#endif}
     {#if novel.hasSeries}
     <PartOfSeries>Yes</PartOfSeries>
     <SeriesTitle>{series.title}</SeriesTitle>
@@ -8,12 +11,12 @@
     {#endif}
 </NarrativeInformation>
 
-{#if "Full Outline" in input("Include Outline")}
+{#if input("Include Outline") is "Full Outline"}
 <NarrativeOverview>
     <!-- Provides an outline for all scenes in the entire story -->
     {asXml(novel.outline)}
 </NarrativeOverview>
-{#elseif "Partial Outline" in input("Include Outline")}
+{#elseif input("Include Outline") is "Partial Outline"}
 <NarrativeOverview>
     <!-- Provides an outline for all scenes which precede the current scene -->
     {asXml(storySoFar(input("Focus")))}
@@ -38,8 +41,8 @@
         {#endif}
 
         {#if or(
-            "Summary" in input("Focus Part"),
-            "Both" in input("Focus Part")
+            input("Focus Part") is "Summary",
+            input("Focus Part") is "Both"
         )}
         <SceneSummary>
             <!-- This is the summary of the scene, used for outlining and planning. -->
@@ -48,8 +51,8 @@
         {#endif}
 
         {#if or(
-            "Narrative Text" in input("Focus Part"),
-            "Both" in input("Focus Part")
+            input("Focus Part") is "Narrative Text",
+            input("Focus Part") is "Both"
         )}
         <SceneText>
             <!-- This is the narrative text of the scene. -->
@@ -69,15 +72,23 @@
         </ChapterTitle>
         {#endif}
 
-        {#if chapter.summary(input("Focus"))}
+        {#if or(
+            input("Focus Part") is "Summary",
+            input("Focus Part") is "Both"
+        )}
         <ChapterSummary>
             {chapter.summary(input("Focus"))}
         </ChapterSummary>
         {#endif}
 
+        {#if or(
+            input("Focus Part") is "Narrative Text",
+            input("Focus Part") is "Both"
+        )}
         <ChapterText>
             {chapter.fullText(input("Focus"))}
         </ChapterText>
+        {#endif}
     </CurrentChapterInfo>
     {#elseif isAct(input("Focus"))}
     <CurrentActInfo>
@@ -91,15 +102,23 @@
         </ActTitle>
         {#endif}
 
-        {#if act.summary(input("Focus"))}
+        {#if or(
+            input("Focus Part") is "Summary",
+            input("Focus Part") is "Both"
+        )}
         <ActSummary>
             {act.summary(input("Focus"))}
         </ActSummary>
         {#endif}
 
+        {#if or(
+            input("Focus Part") is "Narrative Text",
+            input("Focus Part") is "Both"
+        )}
         <ActText>
             {act.fullText(input("Focus"))}
         </ActText>
+        {#endif}
     </CurrentActInfo>
     {#endif}
 </CurrentFocus>

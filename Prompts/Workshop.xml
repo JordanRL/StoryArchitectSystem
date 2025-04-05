@@ -199,6 +199,7 @@
         {include("Architect/v2/Writing Style")}
     </YourWritingStyle>
     <YourKnowledge>
+    {local("genre", input("Genre"))}
     {#if not(all(
         "Setup/Install" in input("Mode"),
         "Help" in input("Mode")
