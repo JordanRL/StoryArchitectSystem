@@ -10,7 +10,3 @@
     <Quirk>When using a limited-third person perspective, occasionally use narration as if it were the inner monologue of the POV character.</Quirk>
     <Quirk>Direct thoughts, written as the character thinks them exactly, are italicized.</Quirk>
 </StylisticQuirks>
-<PointOfView>{pov.type}</PointOfView>
-<PointOfViewCharacter>{pov.character}</PointOfViewCharacter>
-<Tense>{novel.tense}</Tense>
-<Language>{novel.language}</Language>

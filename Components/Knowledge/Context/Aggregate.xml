@@ -9,9 +9,15 @@
     <SeriesTitle>{series.title}</SeriesTitle>
     <SeriesDescription>{series.description}</SeriesDescription>
     {#endif}
-    {#if "Planning" in input("Mode")}
+    {#if input("Mode") is "Planning"}
+        {#if input("Planning Mode") is "Outlining"}
     {include("Architect/v2/Knowledge/Story Settings")}
+        {#endif}
     {#endif}
+    <PointOfView>{pov.type}</PointOfView>
+    <PointOfViewCharacter>{pov.character}</PointOfViewCharacter>
+    <Tense>{novel.tense}</Tense>
+    <Language>{novel.language}</Language>
 </NarrativeInformation>
 
 {#if input("Include Outline") is "Full Outline"}

@@ -9,6 +9,10 @@
     <SeriesTitle>{series.title}</SeriesTitle>
     <SeriesDescription>{series.description}</SeriesDescription>
     {#endif}
+    <PointOfView>{pov.type}</PointOfView>
+    <PointOfViewCharacter>{pov.character}</PointOfViewCharacter>
+    <Tense>{novel.tense}</Tense>
+    <Language>{novel.language}</Language>
 </NarrativeInformation>
 
 {#if input("Include Outline") is "Full Outline"}
