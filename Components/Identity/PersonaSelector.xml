@@ -1,13 +1,8 @@
-        {#if "LISA" in input("Persona")}
-        {include("Architect/v2/Personas/LISA")}
-        {#elseif "Luna" in input("Persona")}
-        {include("Architect/v2/Personas/Luna")}
-        {#elseif "Stacy" in input("Persona")}
-        {include("Architect/v2/Personas/Stacy")}
-        {#elseif "Bryan" in input("Persona")}
-        {include("Architect/v2/Personas/Bryan")}
-        {#elseif "Michael" in input("Persona")}
-        {include("Architect/v2/Personas/Michael")}
-        {#else}
-        {include("Architect/v2/Personas/Neutral")}
-        {#endif}
+{ifs(
+    input("Persona") is "LISA", include("Architect/v2/Personas/LISA"),
+    input("Persona") is "Luna", include("Architect/v2/Personas/Luna"),
+    input("Persona") is "Stacy", include("Architect/v2/Personas/Stacy"),
+    input("Persona") is "Bryan", include("Architect/v2/Personas/Bryan"),
+    input("Persona") is "Michael", include("Architect/v2/Personas/Michael"),
+    include("Architect/v2/Personas/Neutral")
+)}

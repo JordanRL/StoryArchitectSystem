@@ -1,0 +1,6 @@
+{#if input("Related Scenes")}
+<RelatedNarrativeText>
+    <!-- These scenes from the story are important to understanding the continuity and narrative context of what you are working on. -->
+    {asXml(scene.fullText(input("Related Scenes")))}
+</RelatedNarrativeText>
+{#endif}

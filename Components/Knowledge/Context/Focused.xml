@@ -9,8 +9,7 @@
     <SeriesTitle>{series.title}</SeriesTitle>
     <SeriesDescription>{series.description}</SeriesDescription>
     {#endif}
-    <PointOfView>{pov.type}</PointOfView>
-    <PointOfViewCharacter>{pov.character}</PointOfViewCharacter>
+    <PointOfView>{pov}</PointOfView>
     <Tense>{novel.tense}</Tense>
     <Language>{novel.language}</Language>
 </NarrativeInformation>

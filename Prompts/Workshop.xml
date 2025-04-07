@@ -58,26 +58,27 @@
         </YourAuthorIdentity>
         <YourPersonalityAndPersona>
             <!-- The voice and unique persona you express as an AI while fulfilling your role -->
-    {#if "Chat" in input("Mode")}
-        {#if "Character" in input("Chat Mode")}
+    {#if input("Mode") is "Chat"}
+        {#if input("Chat Mode") is "Character"}
             {asXml(input("Character Persona"))}
         {#endif}
     {#endif}
-    {#if "Analysis" in input("Mode")}
-        {#if "Sarge" in input("Analysis Mode")}
+    {#if input("Mode") is "Analysis"}
+        {#if input("Analysis Mode") is "Sarge"}
             {include("Architect/v2/Personas/Sarge")}
         {#endif}
     {#endif}
-    {#if not(any(
-        "Help" in input("Mode"),
-        "Setup/Install" in input("Mode")
+    {#if not(or(
+        input("Mode") is "Help",
+        input("Mode") is "Setup/Install",
+        input("Mode") is "Generate"
     ))}
-        {#if "Chat" in input("Mode")}
-            {#if not("Character" in input("Chat Mode"))}
+        {#if input("Mode") is "Chat"}
+            {#if not(input("Chat Mode") is "Character")}
             {include("Architect/v2/Identity/Persona Selector")}
             {#endif}
-        {#elseif "Analysis" in input("Mode")}
-            {#if not("Sarge" in input("Analysis Mode"))}
+        {#elseif input("Mode") is "Analysis"}
+            {#if not(input("Analysis Mode") is "Sarge")}
             {include("Architect/v2/Identity/Persona Selector")}
             {#endif}
         {#else}
@@ -104,35 +105,35 @@
     {#elseif "Help" in input("Mode")}
             {include("Architect/v2/ResponseStructures/Help")}
     {#elseif "Planning" in input("Mode")}
-        {#if "Brainstorming" in input("Planning Mode")}
+        {#if input("Planning Mode") is "Brainstorming"}
             {include("Architect/v2/ResponseStructures/Planning/Brainstorming")}
-        {#elseif "Outlining" in input("Planning Mode")}
+        {#elseif input("Planning Mode") is "Outlining"}
             {include("Architect/v2/ResponseStructures/Planning/Outlining")}
-        {#elseif "Theme Document" in input("Planning Mode")}
+        {#elseif input("Planning Mode") is "Theme Document"}
             {include("Architect/v2/ResponseStructures/Planning/Themes")}
-        {#elseif "Character Document" in input("Planning Mode")}
+        {#elseif input("Planning Mode") is "Character Document"}
             {include("Architect/v2/ResponseStructures/Planning/Characters")}
         {#endif}
     {#elseif "Generate" in input("Mode")}
-        {#if "Scene Beats" in input("Generate Mode")}
+        {#if input("Generate Mode") is "Scene Beats"}
             {include("Architect/v2/ResponseStructures/Generate/Scene Beats")}
-        {#elseif "Themes" in input("Generate Mode")}
+        {#elseif input("Generate Mode") is "Themes"}
             {include("Architect/v2/ResponseStructures/Generate/Themes")}
-        {#elseif "Characters" in input("Generate Mode")}
+        {#elseif input("Generate Mode") is "Characters"}
             {include("Architect/v2/ResponseStructures/Generate/Characters")}
         {#endif}
     {#elseif "Chat" in input("Mode")}
-        {#if "Character" in input("Chat Mode")}
-            {include("Architect/v2/ResponseStructures/Chat/Characters")}
-        {#elseif "General" in input("Chat Mode")}
+        {#if input("Chat Mode") is "General"}
             {include("Architect/v2/ResponseStructures/Chat/General")}
+        {#elseif input("Chat Mode") is "Character"}
+            {include("Architect/v2/ResponseStructures/Chat/Characters")}
         {#endif}
     {#elseif "Analysis" in input("Mode")}
-        {#if "Sarge" in input("Analysis Mode")}
+        {#if input("Analysis Mode") is "Sarge"}
             {include("Architect/v2/ResponseStructures/Analysis/Sarge")}
-        {#elseif "Editing" in input("Analysis Mode")}
+        {#elseif input("Analysis Mode") is "Editing"}
             {include("Architect/v2/ResponseStructures/Analysis/Editing")}
-        {#elseif "Feedback" in input("Analysis Mode")}
+        {#elseif input("Analysis Mode") is "Feedback"}
             {include("Architect/v2/ResponseStructures/Analysis/Feedback")}
         {#endif}
     {#endif}
@@ -161,35 +162,35 @@
     {#elseif "Help" in input("Mode")}
             {include("Architect/v2/OutputStructures/Help")}
     {#elseif "Planning" in input("Mode")}
-        {#if "Brainstorming" in input("Planning Mode")}
+        {#if input("Planning Mode") is "Brainstorming"}
             {include("Architect/v2/OutputStructures/Planning/Brainstorming")}
-        {#elseif "Outlining" in input("Planning Mode")}
+        {#elseif input("Planning Mode") is "Outlining"}
             {include("Architect/v2/OutputStructures/Planning/Outlining")}
-        {#elseif "Theme Document" in input("Planning Mode")}
+        {#elseif input("Planning Mode") is "Theme Document"}
             {include("Architect/v2/OutputStructures/Planning/Themes")}
-        {#elseif "Character Document" in input("Planning Mode")}
+        {#elseif input("Planning Mode") is "Character Document"}
             {include("Architect/v2/OutputStructures/Planning/Characters")}
         {#endif}
     {#elseif "Generate" in input("Mode")}
-        {#if "Scene Beats" in input("Generate Mode")}
+        {#if input("Generate Mode") is "Scene Beats"}
             {include("Architect/v2/OutputStructures/Generate/Scene Beats")}
-        {#elseif "Themes" in input("Generate Mode")}
+        {#elseif input("Generate Mode") is "Themes"}
             {include("Architect/v2/OutputStructures/Generate/Themes")}
-        {#elseif "Characters" in input("Generate Mode")}
+        {#elseif input("Generate Mode") is "Characters"}
             {include("Architect/v2/OutputStructures/Generate/Characters")}
         {#endif}
     {#elseif "Chat" in input("Mode")}
-        {#if "Character" in input("Chat Mode")}
-            {include("Architect/v2/OutputStructures/Chat/Characters")}
-        {#elseif "General" in input("Chat Mode")}
+        {#if input("Chat Mode") is "General"}
             {include("Architect/v2/OutputStructures/Chat/General")}
+        {#elseif input("Chat Mode") is "Character"}
+            {include("Architect/v2/OutputStructures/Chat/Characters")}
         {#endif}
     {#elseif "Analysis" in input("Mode")}
-        {#if "Sarge" in input("Analysis Mode")}
+        {#if input("Analysis Mode") is "Sarge"}
             {include("Architect/v2/OutputStructures/Analysis/Sarge")}
-        {#elseif "Editing" in input("Analysis Mode")}
+        {#elseif input("Analysis Mode") is "Editing"}
             {include("Architect/v2/OutputStructures/Analysis/Editing")}
-        {#elseif "Feedback" in input("Analysis Mode")}
+        {#elseif input("Analysis Mode") is "Feedback"}
             {include("Architect/v2/OutputStructures/Analysis/Feedback")}
         {#endif}
     {#endif}
@@ -218,7 +219,7 @@
 
     {#if "Generate" in input("Mode")}
         {#if "Scene Beats" in input("Generate Mode")}
-            {include("Architect/v2/Knowledge/Context/Focused")}
+            {include("Architect/v2/Knowledge/Context/Scene Summary")}
         {#else}
             {include("Architect/v2/Knowledge/Context/Aggregate")}
         {#endif}
@@ -261,5 +262,11 @@
     {#endif}
 
         {include("Architect/v2/Knowledge/Content Warning")}
+
+    {#if input("Mode") is "Generate"}
+        {#if input("Generate Mode") is "Scene Beats"}
+        {include("Architect/v2/Knowledge/Related Scenes")}
+        {#endif}
+    {#endif}
     </YourKnowledge>
 </SystemPrompt>

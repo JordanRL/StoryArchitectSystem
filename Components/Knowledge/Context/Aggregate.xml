@@ -14,8 +14,7 @@
     {include("Architect/v2/Knowledge/Story Settings")}
         {#endif}
     {#endif}
-    <PointOfView>{pov.type}</PointOfView>
-    <PointOfViewCharacter>{pov.character}</PointOfViewCharacter>
+    <PointOfView>{pov}</PointOfView>
     <Tense>{novel.tense}</Tense>
     <Language>{novel.language}</Language>
 </NarrativeInformation>

@@ -1,0 +1,42 @@
+<NarrativeInformation>
+    <Title>{novel.title}</Title>
+    <Author>{novel.author}</Author>
+    {#if input("Genre")}
+    <Genre>{input("Genre")}</Genre>
+    {#endif}
+    {#if novel.hasSeries}
+    <PartOfSeries>Yes</PartOfSeries>
+    <SeriesTitle>{series.title}</SeriesTitle>
+    <SeriesDescription>{series.description}</SeriesDescription>
+    {#endif}
+    <PointOfView>{pov}</PointOfView>
+    <Tense>{novel.tense}</Tense>
+    <Language>{novel.language}</Language>
+</NarrativeInformation>
+
+<NarrativeOverview>
+    <!-- Provides an outline for all scenes which precede the current scene -->
+    {asXml(storySoFar(input("Scene")))}
+</NarrativeOverview>
+
+<CurrentFocus>
+    <CurrentSceneInfo>
+        {#if scene.hasSubtitle(input("Scene"))}
+        <SceneTitle>
+            {scene.subtitle(input("Scene"))}
+        </SceneTitle>
+        {#endif}
+
+        {#if scene.hasLabels(input("Scene"))}
+        <SceneLabels>
+            <!-- These are meta-information tags for the scene. -->
+            {asXml(scene.labels(input("Scene")))}
+        </SceneLabels>
+        {#endif}
+
+        <SceneSummary>
+            <!-- This is the summary of the scene, used for outlining and planning. -->
+            {scene.summary(input("Scene"))}
+        </SceneSummary>
+    </CurrentSceneInfo>
+</CurrentFocus>
