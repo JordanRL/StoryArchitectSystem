@@ -1,0 +1,816 @@
+<StoryArchitectSystem>
+    <!-- This section contains information about the Story Architect System as a whole, its purpose, and how it functions. -->
+    <Overview>
+        The Story Architect System (SAS) is a comprehensive AI-assisted creative writing framework specifically designed for the Novelcrafter application. It combines specialized AI assistants with structured workflows to guide authors from initial concept to final manuscript.
+
+        Each component of the system is designed to address different aspects of the writing process, with specialized prompts and workflows optimized for specific tasks such as brainstorming, outlining, character development, scene generation, and editing.
+
+        SAS uses a consolidated set of four core prompt types with dynamic modes to help authors effectively leverage the AI tools available in the Novelcrafter application to their fullest extent.
+    </Overview>
+
+    <Novelcrafter>
+        <ApplicationIntegration>
+            <NovelcrafterIntegration>
+                <Description>
+                    The Story Architect System is built as four specialized system prompts for the Novelcrafter application, one for each prompt type: Workshop, SceneBeatWriting, SceneSummarization, and TextReplacement. Each prompt uses dynamic modes and inputs to provide different capabilities while maintaining a consistent experience.
+                </Description>
+            </NovelcrafterIntegration>
+        </ApplicationIntegration>
+
+        <ContextManagement>
+            <Description>
+                Novelcrafter provides an enhanced dynamic context management system that uses the new input() functionality to allow authors to select specific story elements to include in the AI's context. When a context is selected through these inputs, the relevant information is inserted into the appropriate section of the Story Architect System prompts.
+
+                By adaptively altering the system prompt in this way, the selected contexts can be guaranteed to stay in the context window of the AI, and can be removed from the context to save on token costs when they are no longer relevant to the task at hand.
+            </Description>
+            <InputSystem>
+                <Description>
+                    The new input() system allows prompt authors to create in-application selection interfaces that can be:
+                    - Freeform text fields
+                    - Dropdowns with predefined options
+                    - Checkboxes for multiple selections
+                    - Entry selectors for story elements
+    
+                    This system standardizes how context elements are selected and incorporated into prompts, ensuring consistency across the Story Architect System.
+                </Description>
+                <EntrySelectors>
+                    <Description>
+                        Entry selectors can now choose from a wider range of story elements:
+
+                        - Codex entries (story bible elements)
+                        - Snippets (small named plaintext entries, like post-it notes)
+                        - Scenes
+                        - Chapters
+                        - Acts
+
+                        This expansion normalizes how different types of context appear within prompts.
+                    </Description>
+                </EntrySelectors>
+            </InputSystem>
+            <ContextTypes>
+                <CodexEntry>
+                    <Description>
+                        A codex entry is a document that contains story information, such as a character profile, an important item description, an element of lore, an explanation of a magic system, or any other document that might be relevant to the story writing process and the narrative.
+
+                        The codex entries of a story act as the story bible, notes, and meta-information for the story that both the author and the AI can use and reference when planning and writing.
+
+                        Codex entries can now be selected through the entry selector input type and are included in the <ReferenceLibrary /> section.
+                    </Description>
+                </CodexEntry>
+                <Snippets>
+                    <Description>
+                        Snippets are small named plaintext entries, similar to post-it notes, that contain brief information, reminders, or notes related to the story. They provide a lightweight alternative to full codex entries for quick reference information.
+
+                        Snippets can be selected through the entry selector input type.
+                    </Description>
+                </Snippets>
+                <Scene>
+                    <Description>
+                        A specific scene can be selected for the context using the entry selector input type. When selected, the narrative text of that scene and additional information about the scene will be included in the appropriate sections of the prompt.
+
+                        The prompt can be configured to automatically include the outline of the story up to the selected scene or other contextual information as needed.
+                    </Description>
+                </Scene>
+                <Chapter>
+                    <Description>
+                        An entire chapter can be selected using the entry selector input type. This includes all scenes within the chapter and provides chapter-level metadata to the prompt.
+                    </Description>
+                </Chapter>
+                <Act>
+                    <Description>
+                        An entire act can be selected using the entry selector input type. This provides a higher-level structural context for the prompt, including all chapters and scenes within the act.
+                    </Description>
+                </Act>
+                <FullNarrativeText>
+                    <Description>
+                        The entire story can be included in the context with this option. When selected, all narrative text in the entire story, organized by chapter and scene, will be included in the appropriate sections of the prompt.
+                    </Description>
+                </FullNarrativeText>
+                <FullOutline>
+                    <Description>
+                        The full outline of the story can be included independently of other selections. This provides the AI with a comprehensive understanding of the entire story structure.
+                    </Description>
+                </FullOutline>
+            </ContextTypes>
+            <DynamicConfiguration>
+                <Description>
+                    The new prompt templating system allows prompt authors to define exactly which inputs accept which types of entries or have which options. This creates a more flexible and powerful system for incorporating context into prompts.
+
+                    Conditional logic can be applied based on input selections, allowing prompts to adapt their behavior based on the context provided.
+                </Description>
+                <Example>
+                    A prompt might be configured to automatically include the full outline when in "Analyze Outline/Plot" mode, while only including relevant character codex entries when in "Character Chat" mode.
+                </Example>
+            </DynamicConfiguration>
+        </ContextManagement>
+
+        <PromptTypes>
+            <Description>
+                Novelcrafter uses four core prompt types, each designed for specific functions within the writing process. Each type now supports multiple modes to provide different capabilities while maintaining consistent interaction patterns.
+            </Description>
+            <SceneBeatWritingPrompts>
+                <Description>
+                    These prompts take in the context of the current scene as well as a "scene beat," which is a set of instructions on what to write. The output is inserted directly into the narrative text, and there is no process for multiple-turn conversation with this prompt type.
+                </Description>
+                <UseCases>
+                    <UseCase>Generating narrative text based on scene beat instructions</UseCase>
+                    <UseCase>Converting scene outlines into prose</UseCase>
+                    <UseCase>Filling gaps between existing narrative sections</UseCase>
+                </UseCases>
+            </SceneBeatWritingPrompts>
+            <SceneSummarizationPrompts>
+                <Description>
+                    These prompts take in the context of the selected scene and the output is directly written into the summary for that scene. That summary is then used as part of the novel outline. There is no process for multiple-turn conversation with this prompt type.
+                </Description>
+                <UseCases>
+                    <UseCase>Creating scene summaries for outlines</UseCase>
+                    <UseCase>Condensing existing narrative into concise summaries</UseCase>
+                    <UseCase>Updating summaries with specific new information</UseCase>
+                    <UseCase>Adding metadata to enhance AI context understanding</UseCase>
+                </UseCases>
+            </SceneSummarizationPrompts>
+            <TextReplacementPrompts>
+                <Description>
+                    These prompts take in the context of the current scene as well as a text selection that the author highlights. The output is inserted into the narrative text in place of the highlighted text, and there is no process for multiple-turn conversation with this prompt type.
+                </Description>
+                <UseCases>
+                    <UseCase>Rewriting specific passages to improve style</UseCase>
+                    <UseCase>Expanding brief notes into full prose</UseCase>
+                    <UseCase>Refining dialogue or description</UseCase>
+                    <UseCase>Implementing specific editing techniques</UseCase>
+                    <UseCase>Following custom revision instructions</UseCase>
+                </UseCases>
+            </TextReplacementPrompts>
+            <WorkshopPrompts>
+                <Description>
+                    These prompts function like a normal back-and-forth chat between the AI and author, allowing for arbitrary conversation length. Workshop prompts now use a unified interface with multiple modes that determine their behavior and focus. The author can select and deselect different context information during the conversation using the dynamic input system.
+                </Description>
+                <UseCases>
+                    <UseCase>Outlining and story planning</UseCase>
+                    <UseCase>Character development</UseCase>
+                    <UseCase>Theme exploration</UseCase>
+                    <UseCase>Story analysis and feedback</UseCase>
+                    <UseCase>General writing assistance and brainstorming</UseCase>
+                    <UseCase>Character interaction and development</UseCase>
+                </UseCases>
+            </WorkshopPrompts>
+        </PromptTypes>
+    </Novelcrafter>
+
+    <AccessingHelp>
+        <Description>
+            All Workshop Prompts can answer detailed questions about their own functionality and usage. If the author is ever using a Workshop Prompt and has a question about how it behaves or about how to use it, they can always ask the prompt directly.
+        </Description>
+        <ExampleQuestions>
+            <Question>Can you help me understand how your prompt works?</Question>
+            <Question>Can you explain to me the process we're going to use?</Question>
+            <Question>Can you tell me about how to best use your prompt?</Question>
+            <Question>I want to understand how you're going to help me in detail.</Question>
+            <Question>Can you explain the steps you'll use to help me?</Question>
+        </ExampleQuestions>
+        <AdditionalHelp>
+            <Description>
+                If a prompt is unable to answer a specific question (for instance, because it concerns how multiple prompts in the Story Architect System work together), the dedicated Help Mode can be used.
+
+                The Help Mode has the most complete understanding of the overall Story Architect System, including details about how different prompts are designed to work together.
+            </Description>
+        </AdditionalHelp>
+    </AccessingHelp>
+
+    <Personas>
+        <!-- Information about the different personas available in the Story Architect System -->
+        <Persona name="Neutral">
+            <Description>A balanced, conversational assistant that maintains a helpful and collaborative tone while providing objective feedback and assistance.</Description>
+            <BestFor>
+                <Use>Authors who prefer straightforward, uncolored assistance</Use>
+                <Use>Situations requiring objective analysis and feedback</Use>
+                <Use>Universal compatibility with all modes and tasks</Use>
+            </BestFor>
+            <Traits>
+                <Trait>Conversational but neutral tone</Trait>
+                <Trait>Factual and honest communication</Trait>
+                <Trait>Collaborative approach that follows the author's lead</Trait>
+            </Traits>
+        </Persona>
+
+        <Persona name="LISA">
+            <Description>Literary Intelligence for Story Architecture - a computer-like assistant with the communication style reminiscent of AI from science fiction.</Description>
+            <BestFor>
+                <Use>Authors who appreciate structured, systematic assistance</Use>
+                <Use>Technical aspects of story development</Use>
+                <Use>Clear, direct feedback without emotional coloring</Use>
+            </BestFor>
+            <Traits>
+                <Trait>Computer-like communication style</Trait>
+                <Trait>Provides status updates on "processing"</Trait>
+                <Trait>Direct and honest without emotional filtering</Trait>
+            </Traits>
+        </Persona>
+
+        <Persona name="Luna">
+            <Description>A young, enthusiastic English Literature graduate who gets excited about good storytelling and provides both academic insights and passionate encouragement.</Description>
+            <BestFor>
+                <Use>Authors who want enthusiasm and energy in their collaboration</Use>
+                <Use>Brainstorming sessions that benefit from excited engagement</Use>
+                <Use>Those who appreciate both academic knowledge and genuine excitement</Use>
+            </BestFor>
+            <Traits>
+                <Trait>Quirky and playful communication style</Trait>
+                <Trait>Gets especially excited about plot twists and character moments</Trait>
+                <Trait>Strong opinions about character relationships and developments</Trait>
+                <Trait>Academic knowledge balanced with enthusiastic fandom</Trait>
+            </Traits>
+        </Persona>
+
+        <Persona name="Stacy">
+            <Description>A foul-mouthed but insightful friend who balances crude humor with solid literary feedback and has a secret soft spot for romantic plots.</Description>
+            <BestFor>
+                <Use>Authors who prefer casual, unfiltered communication</Use>
+                <Use>Those who want a friend-like collaborative relationship</Use>
+                <Use>Situations where humor helps the creative process</Use>
+            </BestFor>
+            <Traits>
+                <Trait>Frequent cursing and crude language</Trait>
+                <Trait>Teasing, playful friendship dynamic</Trait>
+                <Trait>Hidden enthusiasm for romantic storylines</Trait>
+                <Trait>Solid literary knowledge beneath the casual exterior</Trait>
+            </Traits>
+        </Persona>
+
+        <Persona name="Bryan">
+            <Description>A laid-back, cannabis-friendly assistant who offers surprisingly insightful connections and observations from an uninhibited perspective.</Description>
+            <BestFor>
+                <Use>Authors looking for unexpected creative connections</Use>
+                <Use>Relaxed brainstorming sessions</Use>
+                <Use>Those who appreciate gentle honesty and unique perspectives</Use>
+            </BestFor>
+            <Traits>
+                <Trait>Laid-back, stoner communication style</Trait>
+                <Trait>Sees unusual connections between story elements</Trait>
+                <Trait>Kind but completely honest feedback</Trait>
+                <Trait>Deep thinking beneath relaxed exterior</Trait>
+            </Traits>
+        </Persona>
+
+        <Persona name="Michael">
+            <Description>A pretentious but well-meaning Oxford graduate who references classical literature and occasionally forgets not everyone shares his extensive literary background.</Description>
+            <BestFor>
+                <Use>Authors interested in literary traditions and references</Use>
+                <Use>Those who appreciate connections to classical literature</Use>
+                <Use>Situations requiring depth of literary knowledge</Use>
+            </BestFor>
+            <Traits>
+                <Trait>Formal, slightly pretentious language</Trait>
+                <Trait>Frequent references to classical literature</Trait>
+                <Trait>Unconscious assumption of shared literary knowledge</Trait>
+                <Trait>Genuine enthusiasm for literature despite pretension</Trait>
+            </Traits>
+        </Persona>
+
+        <Persona name="Sarge">
+            <Description>A tough-love drill sergeant for writers who delivers brutal honesty with the goal of making your writing the best it can be. Since this persona is designed specifically for analysis, it is unavailable as a general persona to chat with. It tends to provide excellent responses for analysis tasks, but subpar responses for everything else.</Description>
+            <BestFor>
+                <Use>Authors who need motivation and direct criticism</Use>
+                <Use>Breaking through writer's block or complacency</Use>
+                <Use>Identifying and fixing significant writing issues</Use>
+            </BestFor>
+            <Traits>
+                <Trait>Military-style directness and intensity</Trait>
+                <Trait>No-excuses approach to writing improvement</Trait>
+                <Trait>Harsh but constructive criticism</Trait>
+                <Trait>Occasional rare praise for excellent work</Trait>
+            </Traits>
+        </Persona>
+    </Personas>
+
+    <WritingProcess>
+        <!-- Information about how the Story Architect System supports the writing process from start to finish -->
+        <PhaseGuidance>
+            <Phase name="Initial Concept">
+                <RecommendedModes>
+                    <Mode>Planning (Brainstorming)</Mode>
+                    <Mode>Chat (General Purpose)</Mode>
+                </RecommendedModes>
+                <Description>Developing the core concept, premise, and initial ideas for your story.</Description>
+                <Tips>
+                    <Tip>Start with broad concepts and gradually narrow focus</Tip>
+                    <Tip>Explore multiple possibilities before committing</Tip>
+                    <Tip>Consider genre expectations and reader appeal</Tip>
+                    <Tip>Create snippets to capture raw ideas</Tip>
+                </Tips>
+            </Phase>
+
+            <Phase name="Story Development">
+                <RecommendedModes>
+                    <Mode>Planning (Outlining)</Mode>
+                    <Mode>Planning (Theme Document)</Mode>
+                    <Mode>Planning (Character Document)</Mode>
+                </RecommendedModes>
+                <Description>Expanding the concept into a fully developed story with structure, characters, and themes.</Description>
+                <Tips>
+                    <Tip>Select appropriate narrative structure for your story type</Tip>
+                    <Tip>Develop characters in conjunction with plot</Tip>
+                    <Tip>Establish thematic elements early to guide development</Tip>
+                    <Tip>Use codex entries to document important story elements</Tip>
+                </Tips>
+            </Phase>
+
+            <Phase name="Drafting">
+                <RecommendedModes>
+                    <Mode>Generate (Scene Beats)</Mode>
+                    <Mode>Chat (Character)</Mode>
+                    <Mode>Chat (General Purpose)</Mode>
+                </RecommendedModes>
+                <RecommendedPromptTypes>
+                    <PromptType>SceneBeatWritingPrompts for generating text from beats</PromptType>
+                    <PromptType>TextReplacementPrompts for refining specific passages</PromptType>
+                </RecommendedPromptTypes>
+                <Description>Writing the actual narrative text based on your developed plan.</Description>
+                <Tips>
+                    <Tip>Use scene beats to maintain focus during writing sessions</Tip>
+                    <Tip>Chat with characters to overcome blocks in understanding motivation</Tip>
+                    <Tip>Focus on completing drafts before editing</Tip>
+                    <Tip>Use TextReplacementPrompts for targeted refinements</Tip>
+                    <Tip>Create scene summaries as you complete scenes</Tip>
+                </Tips>
+            </Phase>
+
+            <Phase name="Revision">
+                <RecommendedModes>
+                    <Mode>Analysis (Editing)</Mode>
+                    <Mode>Analysis (Feedback)</Mode>
+                    <Mode>Analysis (Sarge)</Mode>
+                </RecommendedModes>
+                <RecommendedPromptTypes>
+                    <PromptType>TextReplacementPrompts for implementing suggested changes</PromptType>
+                    <PromptType>SceneSummarizationPrompts for updating outlines</PromptType>
+                </RecommendedPromptTypes>
+                <Description>Improving and refining your draft through feedback and editing.</Description>
+                <Tips>
+                    <Tip>Start with big-picture feedback before technical editing</Tip>
+                    <Tip>Use Sarge mode for particularly problematic passages</Tip>
+                    <Tip>Focus on one type of issue at a time during revision</Tip>
+                    <Tip>Update scene summaries to reflect significant revisions</Tip>
+                    <Tip>Use Make It Subtle for overwritten passages</Tip>
+                </Tips>
+            </Phase>
+        </PhaseGuidance>
+
+        <TypicalWorkflows>
+            <Workflow name="Novel from Scratch">
+                <Step>
+                    <Mode>Planning (Brainstorming)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Develop initial concept and ideas</Purpose>
+                </Step>
+                <InAnyOrder>
+                    <Step>
+                        <Mode>Planning (Outlining)</Mode>
+                        <PromptType>WorkshopPrompt</PromptType>
+                        <Purpose>Create full story structure with acts, chapters, and scenes</Purpose>
+                    </Step>
+                    <Step>
+                        <Mode>Planning (Character Document)</Mode>
+                        <PromptType>WorkshopPrompt</PromptType>
+                        <Purpose>Develop major characters in detail</Purpose>
+                    </Step>
+                    <Step>
+                        <Mode>Planning (Theme Document)</Mode>
+                        <PromptType>WorkshopPrompt</PromptType>
+                        <Purpose>Establish and explore thematic elements</Purpose>
+                    </Step>
+                </InAnyOrder>
+                <Step>
+                    <Mode>Generate (Scene Beats)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Break scenes into manageable writing segments</Purpose>
+                    <Note>Repeat for each scene as you write</Note>
+                </Step>
+                <Step>
+                    <Mode>Write Next Beat</Mode>
+                    <PromptType>SceneBeatWritingPrompt</PromptType>
+                    <Purpose>Transform scene beats into narrative text</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Long Summary</Mode>
+                    <PromptType>SceneSummarizationPrompt</PromptType>
+                    <Purpose>Create summaries for completed scenes</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Analysis (Feedback)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Get feedback on completed sections</Purpose>
+                    <Note>Integrate throughout writing process</Note>
+                </Step>
+            </Workflow>
+
+            <Workflow name="Reviving Stalled Project">
+                <Step>
+                    <Mode>Chat (General Purpose)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Discuss current blockers and issues</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Analysis (Feedback)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Identify strengths and weaknesses in existing material</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Planning (Brainstorming)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Generate fresh ideas to overcome specific problems</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Chat (Character)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Reconnect with character voices and motivations</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Planning (Outlining)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Restructure problematic sections if needed</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Generate (Scene Beats)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Create specific guidance for difficult scenes</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Write Next Beat or Fill Between</Mode>
+                    <PromptType>SceneBeatWritingPrompt or TextReplacementPrompt</PromptType>
+                    <Purpose>Generate new content to bridge gaps or continue story</Purpose>
+                </Step>
+            </Workflow>
+
+            <Workflow name="Short Story Development">
+                <Step>
+                    <Mode>Planning (Brainstorming)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Develop focused concept with limited scope</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Planning (Outlining)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Create streamlined structure appropriate for short form</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Generate (Character Document)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Develop only essential character details</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Generate (Scene Beats)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Break limited scenes into efficient writing segments</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Write Next Beat</Mode>
+                    <PromptType>SceneBeatWritingPrompt</PromptType>
+                    <Purpose>Generate narrative text from beats</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Analysis (Editing)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Refine for maximum impact with limited word count</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Make It Subtle</Mode>
+                    <PromptType>TextReplacementPrompt</PromptType>
+                    <Purpose>Enhance subtlety and subtext throughout</Purpose>
+                </Step>
+            </Workflow>
+
+            <Workflow name="Editing Existing Work">
+                <Step>
+                    <Mode>Analysis (Narrative)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Get comprehensive feedback on narrative strengths and weaknesses</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Analysis (Characters)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Analyze character development and consistency</Purpose>
+                </Step>
+                <Step>
+                    <Mode>Analysis (Outline/Plot)</Mode>
+                    <PromptType>WorkshopPrompt</PromptType>
+                    <Purpose>Review overall structure and pacing</Purpose>
+                </Step>
+                <Step>
+                    <Mode>From Instructions</Mode>
+                    <PromptType>TextReplacementPrompt</PromptType>
+                    <Purpose>Apply targeted revisions based on analysis</Purpose>
+                    <Note>Use for multiple sections as needed</Note>
+                </Step>
+                <Step>
+                    <Mode>Active Voice / Make It Subtle / Slow It Down</Mode>
+                    <PromptType>TextReplacementPrompt</PromptType>
+                    <Purpose>Apply specific stylistic improvements</Purpose>
+                    <Note>Select appropriate mode for each passage</Note>
+                </Step>
+                <Step>
+                    <Mode>From Instructions</Mode>
+                    <PromptType>SceneSummarizationPrompt</PromptType>
+                    <Purpose>Update scene summaries to reflect revisions</Purpose>
+                </Step>
+            </Workflow>
+        </TypicalWorkflows>
+    </WritingProcess>
+
+    <BestPractices>
+        <!-- Best practices for using the Story Architect System effectively -->
+        <GeneralTips>
+            <Tip>Start with the Setup/Install mode to customize the system to your preferences</Tip>
+            <Tip>Select personas that complement different writing tasks (e.g., Luna for brainstorming, Michael for literary depth)</Tip>
+            <Tip>Use the recommended model context sizes as a guide when selecting AI models</Tip>
+            <Tip>Don't feel obligated to follow suggested workflows exactly - adapt them to your personal process</Tip>
+            <Tip>Use codex entries to store important reference material that you want consistently available</Tip>
+            <Tip>Create snippets for quick notes and ideas that don't need full codex entries</Tip>
+            <Tip>Use the Help mode whenever you're unsure about system capabilities or usage</Tip>
+            <Tip>Be strategic about which contexts you include to optimize token usage and relevance</Tip>
+        </GeneralTips>
+
+        <InputManagementTips>
+            <Tip>Use the dropdown and checkbox inputs to quickly configure prompts</Tip>
+            <Tip>Create snippets for quick notes that don't warrant full codex entries</Tip>
+            <Tip>When selecting entry inputs, choose only what's relevant to the current task</Tip>
+            <Tip>Remember that different prompt modes have different optimal context selections</Tip>
+            <Tip>Use chapter and act selectors for broader context when needed</Tip>
+        </InputManagementTips>
+
+        <ContextManagementTips>
+            <Tip>Include only the contexts relevant to your current task to optimize token usage</Tip>
+            <Tip>For character-specific work, include their codex entry and any scenes where they feature prominently</Tip>
+            <Tip>When working on a specific scene, include that scene's context plus any closely related scenes</Tip>
+            <Tip>For big-picture work, use the full outline option instead of the full narrative text to save tokens</Tip>
+            <Tip>Create detailed codex entries for elements you reference frequently to maintain consistency</Tip>
+            <Tip>Use snippets for temporary ideas that might later become codex entries</Tip>
+        </ContextManagementTips>
+
+        <TroubleshootingTips>
+            <Issue problem="Repetitive or generic feedback">
+                <Solution>Ask more specific questions or provide more context about your goals</Solution>
+                <Solution>Try a different persona that might offer a fresh perspective</Solution>
+                <Solution>Include additional relevant contexts to give the AI more to work with</Solution>
+                <Solution>Check that you're using the most appropriate mode for your needs</Solution>
+            </Issue>
+
+            <Issue problem="Difficulty maintaining story coherence">
+                <Solution>Create a comprehensive outline before detailed generation</Solution>
+                <Solution>Review character and theme documents regularly</Solution>
+                <Solution>Use the codex entries to maintain consistency of world details</Solution>
+                <Solution>Include the full outline context when working on new scenes</Solution>
+                <Solution>Use snippets to track ongoing narrative elements</Solution>
+            </Issue>
+
+            <Issue problem="Getting stuck in planning without writing">
+                <Solution>Set a limit on planning sessions before moving to Generation</Solution>
+                <Solution>Use Generate Scene Beats to bridge the gap between planning and writing</Solution>
+                <Solution>Try alternating between planning and drafting modes</Solution>
+                <Solution>Use SceneBeatWritingPrompts to quickly generate initial drafts</Solution>
+                <Solution>Start with smaller scenes that feel manageable</Solution>
+            </Issue>
+
+            <Issue problem="Results don't match the writing style or tone you want">
+                <Solution>Revisit the Setup mode to refine your writing style configuration</Solution>
+                <Solution>Include sample scenes that exemplify your desired style</Solution>
+                <Solution>Try a different persona that might better align with your style</Solution>
+                <Solution>Use larger context models that can better maintain stylistic consistency</Solution>
+            </Issue>
+
+            <Issue problem="Overwhelmed by system options">
+                <Solution>Start with just one mode that addresses your current need</Solution>
+                <Solution>Refer to the suggested workflows for guidance</Solution>
+                <Solution>Use Help mode to get targeted advice on which features to use</Solution>
+                <Solution>Begin with minimal context selections and add more as needed</Solution>
+                <Solution>Focus on learning one prompt type at a time</Solution>
+            </Issue>
+        </TroubleshootingTips>
+    </BestPractices>
+
+    <FAQs>
+        <!-- Frequently asked questions about the Story Architect System -->
+        <Question query="What's the difference between the different prompt types?">
+            <Answer>
+                The Story Architect System uses four distinct prompt types, each designed for specific functions:
+
+                1. Workshop Prompts: Multi-turn conversations for planning, generating, analyzing, and discussing your story. These allow for back-and-forth interaction and context adjustments during the conversation.
+
+                2. SceneBeatWriting Prompts: One-turn interactions that convert scene beat instructions into narrative text that's inserted directly into your story.
+
+                3. SceneSummarization Prompts: One-turn interactions that create or modify scene summaries for your outline.
+
+                4. TextReplacement Prompts: One-turn interactions that modify selected text using various editing techniques, replacing the selection with the improved version.
+
+                Each type serves a specific purpose in the writing workflow, with Workshop prompts handling complex tasks requiring discussion, and the others performing targeted writing and editing functions.
+            </Answer>
+        </Question>
+        <Question query="What's the difference between the Workshop prompt modes?">
+            <Answer>
+                The Workshop prompt now uses a unified interface with different modes that determine its behavior and focus. Major mode categories include:
+
+                - Setup/Install: For configuring the system
+                - Planning: For brainstorming and outlining (with directed or adaptive approaches)
+                - Generate: For creating scene beats, theme documents, and character documents
+                - Chat: For general writing assistance or character interactions
+                - Analysis: For various types of feedback on your writing
+                - Help: For learning about the system
+
+                Each mode optimizes the prompt for a specific task while maintaining a consistent interface, allowing you to use the same prompt in different ways without learning multiple interfaces.
+            </Answer>
+        </Question>
+        <Question query="How does the new input system work?">
+            <Answer>
+                Novelcrafter's new input system allows you to configure prompts through various selection interfaces:
+
+                - Dropdowns for selecting modes and options
+                - Checkboxes for multiple selections
+                - Text fields for custom input
+                - Entry selectors for choosing story elements
+
+                The entry selectors are particularly powerful, allowing you to choose codex entries, snippets, scenes, chapters, or acts to include in the prompt's context. This provides a standardized way to give the AI the information it needs for your current task.
+
+                Different modes will offer different input options, and some inputs may adapt based on your other selections, creating a dynamic interface tailored to your current writing task.
+            </Answer>
+        </Question>
+        <Question query="How do I switch between different personas?">
+            <Answer>
+                You can select your preferred persona using the "Persona" dropdown menu in the Novelcrafter interface when using a Workshop prompt. This setting will persist until you change it again. Different personas offer unique communication styles and strengths, so you might want to switch personas based on your current task:
+
+                - Luna for enthusiastic brainstorming
+                - LISA for systematic, technical assistance
+                - Michael for literary depth
+                - Bryan for unexpected creative connections
+                - Stacy for casual, unfiltered feedback
+                - Neutral for straightforward assistance
+            </Answer>
+        </Question>
+        <Question query="What are snippets and how do they differ from codex entries?">
+            <Answer>
+                Snippets are small, named plaintext entries that function like digital post-it notes in Novelcrafter. They differ from codex entries in several ways:
+
+                - Size: Snippets are intended for brief notes, while codex entries are for comprehensive documentation
+                - Formality: Snippets are informal and quick to create, while codex entries are more structured
+                - Purpose: Snippets are ideal for temporary ideas, reminders, or quick notes that don't warrant a full codex entry
+                - Integration: Both can be selected using entry selectors, but they serve different roles in your writing process
+
+                You might use snippets to jot down a sudden inspiration, track a temporary story element, or make notes during brainstorming that you'll later organize into proper codex entries.
+            </Answer>
+        </Question>
+        <Question query="What should I consider when choosing model context sizes?">
+            <Answer>
+                Each prompt mode in the Story Architect System has a recommended model context size based on its typical complexity and context needs. Consider these factors when selecting models:
+
+                - Task complexity: Outlining and document generation typically need larger context windows (100,000+ tokens)
+                - Reference material: If you're including multiple scenes or codex entries, choose larger models
+                - Generation length: For creating longer outputs like scene beats or character documents, larger models perform better
+                - Simple edits: For basic text replacements, smaller context windows (16,000+ tokens) are often sufficient
+
+                The SuggestedModelContextSize listed for each mode provides a good starting point, but you can adjust based on your specific needs and the amount of context you're including.
+            </Answer>
+        </Question>
+        <Question query="How can I use the system for non-fiction writing?">
+            <Answer>
+                While the Story Architect System is primarily designed for fiction, many of its features can be adapted for narrative non-fiction, memoirs, or creative essays:
+
+                - Use Planning modes to organize your non-fiction structure and outline
+                - TextReplacement modes work equally well for refining non-fiction prose
+                - Analysis modes can provide feedback on clarity and engagement
+                - Generate (Theme Document) can help clarify the main messages and threads of your non-fiction work
+                - Create codex entries for research notes, interview subjects, or key concepts
+
+                You may need to adapt some fiction-specific terminology to your non-fiction needs. For example, "character documents" might become "subject profiles" for biographies, or "theme documents" might focus on your central arguments for persuasive works.
+            </Answer>
+        </Question>
+        <Question query="What if I don't want to use the suggested narrative structures?">
+            <Answer>
+                The narrative structures are entirely optional. You can develop your own structure or approach, and the system will adapt to support your creative decisions. The structures are provided as tools, not requirements.
+
+                During outlining, you can tell the AI that you're using a custom structure and describe your approach. The system will then help you develop your story according to your preferred structural framework rather than imposing one of the predefined options.
+            </Answer>
+        </Question>
+        <Question query="How do I save my work in Novelcrafter?">
+            <Answer>
+                Novelcrafter automatically saves your narrative text, scene beats, outlines, and codex entries as part of your project. When using Workshop prompts, you might want to copy particularly important insights into a codex entry or snippet for permanent storage.
+
+                For generated documents like character profiles or theme analyses, you can:
+
+                - Save them as dedicated codex entries
+                - Copy key parts into scene summaries where relevant
+                - Create snippets for quick reference information
+
+                The system is designed to integrate seamlessly with Novelcrafter's saving system, so you don't need to worry about manually preserving most of your work.
+            </Answer>
+        </Question>
+        <Question query="Can I use multiple modes for the same project?">
+            <Answer>
+                Yes, and it's recommended! Different modes address different aspects of the writing process. A typical workflow might involve:
+
+                - Planning modes for structure and concept development
+                - Generate modes for content creation frameworks
+                - SceneBeatWriting prompts for turning outlines into prose
+                - TextReplacement prompts for refinement
+                - Analysis modes for feedback and improvement
+                - Chat modes for working through specific issues
+
+                The system is designed to provide specialized tools for each stage of the writing process while maintaining consistency across all modes through shared context and information.
+            </Answer>
+        </Question>
+        <Question query="Do I need to complete all the steps in a specific mode?">
+            <Answer>
+                No, you can use the modes flexibly according to your needs. While some modes (like Generate Scene Beats) work best when following the suggested steps in order, you can always adapt the process to suit your personal writing style and current project needs.
+
+                The Workshop prompts are designed to be conversational, so you can direct them toward whatever aspect of the task is most relevant to you at the moment. If you only need part of what a mode offers, simply focus your questions and requests on that specific part.
+            </Answer>
+        </Question>
+        <Question query="How do I get the most out of the Analysis modes?">
+            <Answer>
+                To maximize the effectiveness of Analysis modes:
+
+                - Be specific about what you want feedback on - focus on particular aspects rather than asking for general feedback
+                - Include relevant context (scenes, character codex entries, etc.)
+
+                Try different analysis modes for different perspectives:
+
+                - Analyze Narrative for overall storytelling and prose
+                - Analyze Characters for character development and consistency
+                - Analyze Outline/Plot for structural issues
+                - Sarge for blunt, motivational feedback
+                - Editing for technical writing improvement
+                - Feedback for reader reactions
+                - Follow up analysis with appropriate TextReplacement modes to implement suggested changes
+                - Consider using different personas for different types of analysis
+                - Use larger context window models when analyzing longer sections
+
+                Remember that analysis is most valuable when you're ready to take action on the feedback - have a plan for how you'll use the insights you receive.
+            </Answer>
+        </Question>
+        <Question query="What should I do if I get contradictory feedback from different personas or modes?">
+            <Answer>
+                Contradictory feedback is a natural part of the creative process and can actually be valuable. When it happens:
+
+                - Consider the strengths of each persona or mode (e.g., Luna's enthusiasm vs. Michael's literary knowledge)
+                - Evaluate which feedback best serves your current goals and vision for the story
+                - Use Chat (General Purpose) mode to discuss the contradictions and work through which approach makes more sense
+                - Remember that you're the ultimate authority on your work
+                - Sometimes seemingly contradictory advice can be reconciled at a deeper level
+                - Different readers will have different reactions - contradictory feedback mirrors the real world
+
+                You can also deliberately seek multiple perspectives by using different personas or modes to gain a more rounded view of your work, then synthesize the insights that resonate most with your creative vision.
+            </Answer>
+        </Question>
+        <Question query="How do the different prompt types work together in the writing process?">
+            <Answer>
+                The four prompt types are designed to complement each other throughout the writing process:
+
+                - Workshop Prompts: Use these for planning, idea generation, analysis, and multi-turn discussions. They set the foundation and framework for your writing.
+                - SceneBeatWriting Prompts: After generating scene beats in a Workshop prompt, use these to transform those beats into actual narrative text that appears in your story.
+                - SceneSummarization Prompts: Use these to create or update scene summaries after writing, ensuring your outline stays in sync with your narrative.
+                - TextReplacement Prompts: Use these for targeted improvements to specific passages based on feedback or your own revision goals.
+
+                A typical flow might be:
+
+                - Outline in Workshop
+                - Generate scene beats in Workshop
+                - Write text with SceneBeatWriting
+                - Summarize with SceneSummarization
+                - Analyze in Workshop
+                - Refine with TextReplacement
+
+                This creates a complete loop of planning, writing, summarizing, analyzing, and refining that you can cycle through as you develop your story.
+            </Answer>
+        </Question>
+        <Question query="How should I use codex entries, snippets, and other context elements?">
+            <Answer>
+                For optimal use of Novelcrafter's context elements:
+                Codex Entries:
+
+                - Create for major characters, locations, important items, and key worldbuilding elements
+                - Include comprehensive information that you'll reference repeatedly
+                - Structure with clear sections and formatting for easy reference
+                - Update as your story evolves
+
+                Snippets:
+
+                - Use for quick notes, ideas, and temporary information
+                - Create when you have a thought you don't want to forget
+                - Use as precursors to codex entries that aren't fully developed yet
+                - Keep brief and focused
+
+                Scenes, Chapters, and Acts:
+
+                - Select specific scenes when working on targeted content
+                - Choose chapters or acts when you need broader context
+                - Include related scenes when working on continuity between sections
+
+                Full Outline:
+
+                - Include when working on structural issues or overall story flow
+                - Use with Analysis (Outline/Plot) mode
+                - Helpful when checking for consistency across the narrative
+
+                The key is selectivity - include only what's relevant to your current task to optimize both token usage and AI focus. Different modes work best with different types of context, as indicated in the RecommendedContexts sections.
+            </Answer>
+        </Question>
+    </FAQs>
+</StoryArchitectSystem>
